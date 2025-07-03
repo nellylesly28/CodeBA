@@ -60,7 +60,7 @@ def run_forecast(case):
         return
 
     offset = 0
-    limit = 20
+    limit = 50
     index = 1
 
     while True:
