@@ -15,6 +15,8 @@ def get_coordinates(table_name, offset, limit):
 
 # Forecast-URL aufbauen
 def build_url(coords, case):
+    hourly_params = "temperature_2m,rain,cloud_cover,precipitation,apparent_temperature,dew_point_2m,pressure_msl,windspeed_10m,sunshine_duration"
+ 
     if case == "historisch":
         base_url = "https://historical-forecast-api.open-meteo.com/v1/forecast"
         end_date = datetime.utcnow().date()
@@ -23,27 +25,82 @@ def build_url(coords, case):
     else:
         base_url = "https://api.open-meteo.com/v1/forecast"
         date_params = "&forecast_days=2"
-
+       
     lat_list = ",".join(str(row['latitude']) for row in coords)
     lon_list = ",".join(str(row['longitude']) for row in coords)
 
     return (
         f"{base_url}?latitude={lat_list}&longitude={lon_list}"
         f"{date_params}"
-        "&hourly=temperature_2m,windspeed_10m,sunshine_duration,"
-        "precipitation,pressure_msl,dew_point_2m"
+        f"&hourly={hourly_params}"
         "&models=icon_seamless"
         "&timezone=Europe/Berlin"
     )
+
+
+# 🔁 JSON vertikalisieren
+def normalize_and_verticalize(input_data):
+    """
+    Normalizes and verticalizes API Response data:
+    - If the input is a JSON string, it converts it into a dict or a list.
+    - If the JSON is a single dictionary, it converts it into a list.
+    - If 'hourly' contains parallel lists, it verticalizes them into a list of dicts under 'hourly'.
+    """
+    import json
+    if isinstance(input_data, str):
+        input_data = json.loads(input_data)
+
+    if isinstance(input_data, dict):
+        input_data = [input_data]
+
+    if not isinstance(input_data, list):
+        raise ValueError("Unexpected data structure: expected a dict, a list, or a valid JSON string.")
+
+    transformed_data = []
+
+    for entry in input_data:
+        # Copy all the fields except "hourly"
+        transformed_entry = {k: v for k, v in entry.items() if k != "hourly"}
+
+        # Transform the "hourly" data, with consistency check
+        hourly_data = entry["hourly"]
+        keys = ["time", "temperature_2m", "rain", "cloud_cover", "precipitation", "apparent_temperature", "dew_point_2m", "pressure_msl", "windspeed_10m", "sunshine_duration"]
+        list_lengths = {k: len(hourly_data.get(k, [])) for k in keys}
+        if len(set(list_lengths.values())) != 1:
+            raise ValueError("Not all hourly values have the same length.")
+
+        transformed_hourly = []
+        for i in range(list_lengths["time"]):
+            transformed_hourly.append({
+                "time": hourly_data["time"][i],
+                "temperature_2m": hourly_data["temperature_2m"][i],
+                "rain": hourly_data["rain"][i],
+                "cloud_cover": hourly_data["cloud_cover"][i],
+                "precipitation": hourly_data["precipitation"][i],
+                "apparent_temperature": hourly_data["apparent_temperature"][i],
+                "dew_point_2m": hourly_data["dew_point_2m"][i],
+                "pressure_msl": hourly_data["pressure_msl"][i],
+                "windspeed_10m": hourly_data["windspeed_10m"][i],
+                "sunshine_duration": hourly_data["sunshine_duration"][i]
+            })
+
+        transformed_entry["hourly"] = transformed_hourly
+        transformed_data.append(transformed_entry)
+
+    return transformed_data
+
 
 # JSON in DB speichern
 def store_response(table_name, json_data):
     insert_query = f"INSERT INTO {table_name} (daten) VALUES (%s)"
     try:
-        execute_query(insert_query, (json.dumps(json_data),))
-        print("Erfolgreich gespeichert.")
+        #execute_query(insert_query, (json.dumps(json_data),))
+        #print("Erfolgreich gespeichert.")
+        transformed = normalize_and_verticalize(json_data)
+        execute_query(insert_query, (json.dumps(transformed),))
+        print(f"Transformierte Wetterdaten erfolgreich in {table_name} gespeichert.")
     except Exception as e:
-        print(f"Fehler beim Speichern: {e}")
+        print(f"Fehler beim Speichern der Wetterdaten: {e}")
 
 # Hauptfunktion
 def run_forecast(case):
