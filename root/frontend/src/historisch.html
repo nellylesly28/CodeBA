@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Historische Wetterdaten</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    body { margin: 2rem; font-family: sans-serif; }
+    canvas { width: 100% !important; height: 60vh !important; }
+    select { padding: 0.5rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+
+  <h2>📊 Historische Wetterdaten</h2>
+
+  <label for="stationSelect">Station wählen:</label>
+  <select id="stationSelect"></select>
+  
+  <label for="timeRange">Zeitraum:</label>
+  <select id="timeRange">
+    <option value="all">Alle</option>
+    <option value="24h">Letzte 24 Stunden</option>
+    <option value="2d">Letzte 2 Tage</option>
+    <option value="7d">Letzte 7 Tage</option>
+    <option value="16d">Letzte 16 Tage</option>
+  </select>
+
+
+  <div id="lineToggles" style="margin: 1rem 0;"></div> <!-- Neue Checkboxen hier -->
+
+  <canvas id="historicalChart"></canvas>
+  
+
+
+  <script>
+    let allData = [];
+    const select = document.getElementById("stationSelect");
+    const timeSelect = document.getElementById("timeRange");
+
+    const ctx = document.getElementById("historicalChart").getContext("2d");
+
+    let chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: []
+      },
+      options: {
+        responsive: true,
+        interaction: {
+          mode: 'index',
+          intersect: false,
+        },
+        stacked: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Wetterverlauf'
+          }
+        },
+        scales: {
+          y1: { type: 'linear', position: 'left', title: { display: true, text: 'Temperatur / Taupunkt (°C)' } },
+          y2: { type: 'linear', position: 'right', title: { display: true, text: 'Regen / Niederschlag (mm/% bzw.)' }, grid: { drawOnChartArea: false } },
+          y3: { type: 'linear', position: 'right', offset: true, title: { display: true, text: 'Sonne (Minuten) / Bewölkung (%)' }, grid: { drawOnChartArea: false } },
+        }
+      }
+    });
+
+    fetch("/api/historische-daten")
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        const stationen = [...new Set(data.map(d => d.station_id))];
+
+        stationen.forEach(station => {
+          const name = data.find(d => d.station_id === station)?.station_name || station;
+          const option = document.createElement("option");
+          option.value = station;
+          option.textContent = name;
+          select.appendChild(option);
+        });
+
+        if(stationen.length) updateChart(stationen[0]);
+      });
+
+    select.addEventListener("change", () => {
+      updateChart(select.value);
+    });
+
+function updateChart(stationId) {
+
+  const timeRange = timeSelect.value;
+  let filtered = allData.filter(d => d.station_id === stationId);
+
+  
+  if (timeRange !== "all") {
+    const now = new Date();
+    filtered = filtered.filter(d => {
+      const entryDate = new Date(d.date_hour);
+      if (timeRange === "24h") return now - entryDate <= 24 * 60 * 60 * 1000;
+      if (timeRange === "2d") return now - entryDate <= 2 * 24 * 60 * 60 * 1000;
+      if (timeRange === "7d") return now - entryDate <= 7 * 24 * 60 * 60 * 1000;
+      if (timeRange === "16d") return now - entryDate <= 16 * 24 * 60 * 60 * 1000;
+
+      return true;
+    });
+  }
+
+  filtered.sort((a, b) => new Date(a.date_hour) - new Date(b.date_hour));
+
+  //const filtered = allData.filter(d => d.station_id === stationId);
+  const labels = filtered.map(d => d.date_hour);
+
+  const temperaturData = filtered.map(d => d.temperatur ?? null);
+  const dewPointData = filtered.map(d => d.dew_point ?? null);
+  const rainData = filtered.map(d => d.rain ?? null);
+  const precipitationSumData = filtered.map(d => d.precipitation_sum ?? null);
+  const sunshineData = filtered.map(d => d.sunshine_duration ?? null);
+  const cloudCoverData = filtered.map(d => d.cloud_cover_total != null ? Math.round(d.cloud_cover_total * 100) : null);
+
+
+  const datasets = [
+    {
+      label: 'Temperatur (°C)',
+      data: temperaturData,
+      borderColor: 'red',
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      tension: 0.3,
+      yAxisID: 'y1',
+      fill: false,
+    },
+    {
+      label: 'Taupunkt (°C)',
+      data: dewPointData,
+      borderColor: 'orange',
+      backgroundColor: 'rgba(255, 159, 64, 0.2)',
+      tension: 0.3,
+      yAxisID: 'y1',
+      fill: false,
+    },
+    {
+      label: 'Regen (mm)',
+      data: rainData,
+      borderColor: 'blue',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      tension: 0.3,
+      yAxisID: 'y2',
+      fill: false,
+    },
+    {
+      label: 'Niederschlagssumme (mm)',
+      data: precipitationSumData,
+      borderColor: 'navy',
+      backgroundColor: 'rgba(0, 0, 128, 0.2)',
+      tension: 0.3,
+      yAxisID: 'y2',
+      fill: false,
+    },
+    {
+      label: 'Sonnenscheindauer (Minuten)',
+      data: sunshineData,
+      borderColor: 'gold',
+      backgroundColor: 'rgba(255, 223, 0, 0.2)',
+      tension: 0.3,
+      yAxisID: 'y3',
+      fill: false,
+    },
+    {
+      label: 'Bewölkung (%)',
+      data: cloudCoverData,
+      borderColor: 'gray',
+      backgroundColor: 'rgba(128, 128, 128, 0.2)',
+      tension: 0.3,
+      yAxisID: 'y3',
+      fill: false,
+    }
+  ];
+
+  chart.data.labels = labels;
+  chart.data.datasets = datasets;
+  chart.options.plugins.title.text = `Wetterverlauf für ${select.selectedOptions[0].text}`;
+  chart.update();
+
+  // Checkboxes generieren
+  const toggleContainer = document.getElementById("lineToggles");
+  toggleContainer.innerHTML = ""; // leeren
+
+  datasets.forEach((ds, index) => {
+    const wrapper = document.createElement("label");
+    wrapper.style.marginRight = "1rem";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = true;
+    checkbox.dataset.index = index;
+
+    checkbox.addEventListener("change", (e) => {
+      const i = parseInt(e.target.dataset.index);
+      chart.getDatasetMeta(i).hidden = !e.target.checked;
+      chart.update();
+    });
+
+    wrapper.appendChild(checkbox);
+    wrapper.appendChild(document.createTextNode(" " + ds.label));
+    toggleContainer.appendChild(wrapper);
+  });
+
+}
+
+
+   /* function updateChart(stationId) {
+      const filtered = allData.filter(d => d.station_id === stationId);
+      const labels = filtered.map(d => d.date_hour);
+
+      // Werte extrahieren, null/undefined als null setzen, damit Chart.js sauber ist
+      const temperaturData = filtered.map(d => d.temperatur ?? null);
+      const dewPointData = filtered.map(d => d.dew_point ?? null);
+      const rainData = filtered.map(d => d.rain ?? null);
+      const precipitationSumData = filtered.map(d => d.precipitation_sum ?? null);
+      const sunshineData = filtered.map(d => d.sunshine_duration ?? null);
+      const cloudCoverData = filtered.map(d => {
+        if (d.cloud_cover_total !== undefined && d.cloud_cover_total !== null) {
+          return Math.round(d.cloud_cover_total * 100);
+        }
+        return null;
+      });
+
+      chart.data.labels = labels;
+      chart.data.datasets = [
+        {
+          label: 'Temperatur (°C)',
+          data: temperaturData,
+          borderColor: 'red',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          tension: 0.3,
+          yAxisID: 'y1',
+          fill: false,
+        },
+        {
+          label: 'Taupunkt (°C)',
+          data: dewPointData,
+          borderColor: 'orange',
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          tension: 0.3,
+          yAxisID: 'y1',
+          fill: false,
+        },
+        {
+          label: 'Regen (mm)',
+          data: rainData,
+          borderColor: 'blue',
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          tension: 0.3,
+          yAxisID: 'y2',
+          fill: false,
+        },
+        {
+          label: 'Niederschlagssumme (mm)',
+          data: precipitationSumData,
+          borderColor: 'navy',
+          backgroundColor: 'rgba(0, 0, 128, 0.2)',
+          tension: 0.3,
+          yAxisID: 'y2',
+          fill: false,
+        },
+        {
+          label: 'Sonnenscheindauer (Minuten)',
+          data: sunshineData,
+          borderColor: 'gold',
+          backgroundColor: 'rgba(255, 223, 0, 0.2)',
+          tension: 0.3,
+          yAxisID: 'y3',
+          fill: false,
+        },
+        {
+          label: 'Bewölkung (%)',
+          data: cloudCoverData,
+          borderColor: 'gray',
+          backgroundColor: 'rgba(128, 128, 128, 0.2)',
+          tension: 0.3,
+          yAxisID: 'y3',
+          fill: false,
+        }
+      ];
+
+      chart.options.plugins.title.text = `Wetterverlauf für ${select.selectedOptions[0].text}`;
+      chart.update();
+    }*/
+    timeSelect.addEventListener("change", () => {
+  updateChart(select.value);
+});
+
+  </script>
+</body>
+</html>

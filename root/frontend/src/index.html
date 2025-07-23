@@ -1,57 +1,75 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deutsche Weterdaten</title> 
-    
-    <!-- Leaflet -->
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <meta charset="UTF-8" />
+  <title>🌦️ Deutsche Wetterdaten</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <!-- MarkerCluster -->
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-    />
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-    />
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to top right, #e0f7fa, #ffffff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    .container {
+      text-align: center;
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
 
+    h1 {
+      font-size: 2rem;
+      color: #1e90ff;
+      margin-bottom: 2rem;
+    }
 
-    <style>
-        #map {
-            height: 100vh;
-        width: 100%;
-        }
-    </style>
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(30, 144, 255, 0.2);
+    }
 
+    .btn:hover {
+      background-color: #0066cc;
+      transform: translateY(-2px);
+    }
+
+    .emoji {
+      margin-right: 0.5rem;
+    }
+  </style>
 </head>
 <body>
-    <div id="map"></div>
-    <canvas id="historyChart" width="400" height="200"></canvas>
-
-    <script>
-        var map = L.map('map').setView([51.505, 10.4515], 6);
-        // Tile Layer hinzufügen (OpenStreetMap)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap-Mitwirkende'
-        }).addTo(map);
-
-  // Marker Cluster-Gruppe
-  const markers = L.markerClusterGroup();
-  // Wetterstationen hinzufügen
-
-  // Chart-Canvas vorbereiten
-  const chartCtx = document.getElementById('historyChart').getContext('2d');
-  let chart = null;  // Wird später mit Chart.js initialisiert
-    </script>
+  <div class="container">
+    <h1>🌤️ Deutsche Wetterdaten</h1>
+    <button class="btn" onclick="location.href='/vorhersage'">
+      <span class="emoji">🔮</span>Vorhersage anzeigen
+    </button>
+    <button class="btn" onclick="location.href='/historisch'">
+      <span class="emoji">📊</span>Historische Daten anzeigen
+    </button>
+  </div>
 </body>
 </html>

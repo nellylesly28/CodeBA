@@ -2,3 +2,1383 @@
 2025-07-15 14:46:14,072 [INFO] MySQL Connection Pool erfolgreich erstellt.
 2025-07-15 14:46:22,478 [INFO] MySQL Connection Pool erfolgreich erstellt.
 2025-07-16 22:23:52,986 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-20 22:43:43,016 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-20 22:50:47,924 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-20 22:55:05,340 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-21 23:53:58,085 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 00:44:10,627 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 00:54:50,088 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 00:58:35,437 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT station_id, station_name, latitude, longitude, timezone, time,
+               temperature_2m, windspeed_10m, sunshine_duration,rain,
+               precipitation, pressure_msl, dew_point_2m,cloud_cover,apparent_temperature
+        FROM dwd_vorhersage
+        ORDER BY station_id, time
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 00:58:35,437 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:07:13,535 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:07:20,302 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:07:38,494 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:07:47,951 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:08:04,456 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:08:05,969 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:08:29,283 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:08:46,104 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:08:47,347 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:08:48,720 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:08:54,354 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:09:13,971 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:09:16,880 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:09:22,711 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:17:47,008 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:17:48,235 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:17:49,324 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:17:53,890 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:18:04,906 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:18:07,565 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:18:15,039 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:18:21,708 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:18:47,984 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:19:01,229 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:37:55,361 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:38:05,792 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:38:06,926 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:38:12,770 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:41:32,661 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:44:04,764 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:44:08,413 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:44:11,878 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:44:20,054 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:44:29,086 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperature_2m,
+            apparent_temperature,
+            cloud_cover,
+            precipitation,
+            rain,
+            sunshine_duration,
+            dew_point_2m,
+            pressure_msl,
+            windspeed_10m,
+            abfragezeit,
+            date_hour
+        FROM dwd_vorhersage
+        ORDER BY station_id, abfragezeit;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature_2m' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+2025-07-22 11:44:29,093 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature_2m' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+2025-07-22 11:44:34,996 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperature_2m,
+            apparent_temperature,
+            cloud_cover,
+            precipitation,
+            rain,
+            sunshine_duration,
+            dew_point_2m,
+            pressure_msl,
+            windspeed_10m,
+            abfragezeit,
+            date_hour
+        FROM dwd_vorhersage
+        ORDER BY station_id, abfragezeit;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature_2m' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+2025-07-22 11:44:35,002 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature_2m' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+2025-07-22 11:45:27,155 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperature_2m,
+            apparent_temperature,
+            cloud_cover,
+            precipitation,
+            rain,
+            sunshine_duration,
+            dew_point_2m,
+            pressure_msl,
+            windspeed_10m,
+            abfragezeit,
+            date_hour
+        FROM dwd_vorhersage
+        ORDER BY station_id, abfragezeit;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature_2m' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+2025-07-22 11:45:27,162 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature_2m' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature_2m' in 'field list'
+2025-07-22 11:48:12,329 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:48:18,349 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:48:37,727 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'temperature' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperature,
+            apparent_temperature,
+            cloud_cover,
+            precipitation,
+            rain,
+            sunshine_duration,
+            dew_point_2m,
+            pressure_msl,
+            windspeed_10m,
+            abfragezeit,
+            date_hour
+        FROM dwd_vorhersage
+        ORDER BY station_id, abfragezeit;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature' in 'field list'
+2025-07-22 11:48:37,742 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'temperature' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature' in 'field list'
+2025-07-22 11:48:41,474 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'temperature' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperature,
+            apparent_temperature,
+            cloud_cover,
+            precipitation,
+            rain,
+            sunshine_duration,
+            dew_point_2m,
+            pressure_msl,
+            windspeed_10m,
+            abfragezeit,
+            date_hour
+        FROM dwd_vorhersage
+        ORDER BY station_id, abfragezeit;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature' in 'field list'
+2025-07-22 11:48:41,477 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'temperature' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'temperature' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'temperature' in 'field list'
+2025-07-22 11:49:01,600 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:49:07,977 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:49:14,147 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'apparent_temperature' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperatur,
+            apparent_temperature,
+            cloud_cover,
+            precipitation,
+            rain,
+            sunshine_duration,
+            dew_point_2m,
+            pressure_msl,
+            windspeed_10m,
+            abfragezeit,
+            date_hour
+        FROM dwd_vorhersage
+        ORDER BY station_id, abfragezeit;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'apparent_temperature' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'apparent_temperature' in 'field list'
+2025-07-22 11:49:14,155 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'apparent_temperature' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'apparent_temperature' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'apparent_temperature' in 'field list'
+2025-07-22 11:50:39,195 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:50:43,851 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:50:53,270 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:50:54,304 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:51:03,805 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:51:49,151 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:51:58,541 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:52:09,609 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:52:17,367 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 11:52:58,031 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:52:58,042 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:00,094 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:00,094 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:02,246 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:02,250 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:22,110 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:22,112 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:24,777 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:24,779 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:42,479 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:53:42,485 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:24,217 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:24,220 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:27,853 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:27,866 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:30,351 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:30,351 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:36,107 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:36,111 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:40,268 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:54:40,268 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:56:02,259 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 11:56:02,270 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 12:30:05,235 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 13:15:20,673 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            timezone,
+            time,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 13:15:20,737 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'timezone' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'timezone' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'timezone' in 'field list'
+2025-07-22 13:21:18,712 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 13:21:44,848 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'time' in 'order clause'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+            abfragezeit,
+            date_hour
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'time' in 'order clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'time' in 'order clause'
+2025-07-22 13:21:44,856 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'time' in 'order clause'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'time' in 'order clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'time' in 'order clause'
+2025-07-22 13:25:20,353 [ERROR] Fehler bei der Query-Ausführung: 1054 (42S22): Unknown column 'time' in 'order clause'
+Query: 
+        SELECT
+            station_id,
+            station_name,
+            latitude,
+            longitude,
+            temperatur,
+            windspeed_10m,
+            sunshine_duration,
+            rain,
+            precipitation_sum,
+            pressure_msl,
+            dew_point,
+            cloud_cover_total,
+            apparent_temperatur
+            abfragezeit,
+            date_hour
+        FROM dwd_hist_wetterdaten
+        ORDER BY station_id, time;
+    
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'time' in 'order clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'time' in 'order clause'
+2025-07-22 13:25:20,362 [ERROR] Fehler beim Datenbankzugriff: 1054 (42S22): Unknown column 'time' in 'order clause'
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'time' in 'order clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'time' in 'order clause'
+2025-07-22 13:29:03,726 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 13:33:46,111 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 13:45:13,588 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 14:20:20,352 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 14:25:50,549 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 14:36:33,313 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 14:42:46,942 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 14:46:31,329 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 14:46:40,203 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 14:49:14,687 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 15:12:18,083 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-22 15:14:39,137 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 14:42:19,066 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 14:51:16,166 [ERROR] Fehler bei der Query-Ausführung: 2013 (HY000): Lost connection to MySQL server during query
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-23 14:51:16,225 [ERROR] Fehler beim Datenbankzugriff: MySQL Connection not available.
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 82, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 95, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vorhersage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Font Awesome 4.7 (kompatibel) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- Awesome Markers CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.awesome-markers/2.0.4/leaflet.awesome-markers.css" />
+  <!-- Awesome Markers JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.awesome-markers/2.0.4/leaflet.awesome-markers.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f8ff;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 14px;
+      background: linear-gradient(to bottom, #ffffff, #f2f6fc);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      padding: 0;
+    }
+
+    .leaflet-popup-content {
+      margin: 0;
+    }
+
+    .leaflet-popup-tip {
+      background: white;
+    }
+
+    .popup-content {
+      max-height: 260px;
+      overflow-y: auto;
+      font-size: 0.92rem;
+      line-height: 1.4;
+      padding: 0.8rem;
+    }
+
+    .popup-content strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+      color: #2563eb;
+    }
+
+    .popup-meta {
+      font-size: 0.85rem;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+
+    .popup-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .popup-content li {
+      margin-bottom: 0.5rem;
+      background-color: #e8f0ff;
+      border-radius: 8px;
+      padding: 0.5rem 0.7rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .accordion-btn {
+      all: unset;
+      cursor: pointer;
+      font-weight: 500;
+      display: block;
+      width: 100%;
+      color: #1f2937;
+    }
+
+    .accordion-btn:hover {
+      background-color: #dbeafe;
+      border-radius: 6px;
+    }
+
+    .accordion-arrow {
+      display: inline-block;
+      margin-right: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-arrow.open {
+      transform: rotate(90deg);
+    }
+
+    .hidden {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      color: #374151;
+      padding-left: 1rem;
+    }
+
+    .show {
+      max-height: 300px;
+      opacity: 1;
+      padding-left: 1rem;
+      margin-top: 0.3rem;
+      transition: all 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    const map = L.map("map").setView([51, 10], 6); // Zentrum Deutschland
+
+    /*L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap-Mitwirkende'
+    }).addTo(map);*/
+
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; OpenStreetMap &copy; CartoDB',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
+
+    fetch("/api/vorhersage")
+      .then(res => res.json())
+      .then(data => {
+        const seen = new Set();
+
+        data.forEach(item => {
+          if (!seen.has(item.station_id)) {
+            seen.add(item.station_id);
+
+            const forecast = data
+              .filter(d => d.station_id === item.station_id)
+              .sort((a, b) => new Date(a.date_hour) - new Date(b.date_hour))
+              .map((d, index) => {
+                const rainProb = d.rain > 0 ? Math.min(100, Math.round(d.rain * 10)) : 0;
+                const feelsLike = d.apparent_temperatur ? `${d.apparent_temperatur}°C` : "N/A";
+                const cloudCover = d.cloud_cover_total ? Math.round(d.cloud_cover_total * 100) : 0;
+
+                return `
+                  <li>
+                    <button class="accordion-btn" onclick="
+                      const detail = document.getElementById('details-${item.station_id}-${index}');
+                      const arrow = this.querySelector('.accordion-arrow');
+                      detail.classList.toggle('show');
+                      detail.classList.toggle('hidden');
+                      arrow.classList.toggle('open');
+                    ">
+                      <span class="accordion-arrow">&#9656;</span>
+                      🕓 ${d.date_hour}<br>
+                      🌡 ${d.temperatur}°C (Gefühlt: ${feelsLike}) | ☔ ${rainProb}%
+                    </button>
+                    <div id="details-${item.station_id}-${index}" class="hidden">
+                      💧 Niederschlag: ${d.precipitation_sum} mm<br>
+                      ☁ Bewölkung: ${cloudCover}%<br>
+                      ☀ Sonne: ${d.sunshine_duration} min<br>
+                      🌬 Wind: ${d.windspeed_10m ?? 'N/A'} km/h<br>
+                      🌡 Taupunkt: ${d.dew_point ?? 'N/A'}°C<br>
+                      📉 Luftdruck: ${d.pressure_msl ?? 'N/A'} hPa
+                    </div>
+                  </li>
+                `;
+              })
+              .join("");
+
+            const popup = `
+              <div class="popup-content">
+                <strong>${item.station_name}</strong>
+                <div class="popup-meta">📌 Breite: ${item.latitude}, Länge: ${item.longitude}</div>
+                <div class="popup-meta">🆔 Station-ID: ${item.station_id}</div>
+                <ul>${forecast}</ul>
+              </div>
+            `;
+
+            L.marker([item.latitude, item.longitude])
+              .addTo(map)
+              .bindPopup(popup);
+          }
+        });
+      });
+  </script>
+</body>
+</html>
