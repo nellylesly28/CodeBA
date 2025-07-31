@@ -40,7 +40,7 @@ def get_current_station():
 
     table = soup.find("table")
     if not table:
-        print("Tabelle nicht gefunden!")
+        print("Tabelle auf Internet Seite nicht gefunden!")
         return []
 
     rows = table.find_all("tr") #[1:]

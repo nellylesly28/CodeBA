@@ -26,7 +26,14 @@
     <option value="2d">Letzte 2 Tage</option>
     <option value="7d">Letzte 7 Tage</option>
     <option value="16d">Letzte 16 Tage</option>
+
   </select>
+
+  <label for="yearSelect">Jahr:</label>
+    <select id="yearSelect">
+      <option value="all">Alle Jahre</option>
+    </select>
+
 
 
   <div id="lineToggles" style="margin: 1rem 0;"></div> <!-- Neue Checkboxen hier -->
@@ -69,9 +76,21 @@
       }
     });
 
+    const yearSelect = document.getElementById("yearSelect");
+
     fetch("/api/historische-daten")
       .then(res => res.json())
       .then(data => {
+
+        const jahre = [...new Set(data.map(d => new Date(d.date_hour).getFullYear()))].sort();
+        //const yearSelect = document.getElementById("yearSelect");
+        jahre.forEach(jahr => {
+          const option = document.createElement("option");
+          option.value = jahr;
+          option.textContent = jahr;
+          yearSelect.appendChild(option);
+        });
+
         allData = data;
         const stationen = [...new Set(data.map(d => d.station_id))];
 
@@ -85,14 +104,19 @@
 
         if(stationen.length) updateChart(stationen[0]);
       });
+      select.addEventListener("change", () => {
+        updateChart(select.value);
+      });
+      
+      yearSelect.addEventListener("change", () => {
+        updateChart(select.value);
+      });
 
-    select.addEventListener("change", () => {
-      updateChart(select.value);
-    });
 
 function updateChart(stationId) {
 
   const timeRange = timeSelect.value;
+  const selectedYear = yearSelect.value;
   let filtered = allData.filter(d => d.station_id === stationId);
 
   
@@ -107,6 +131,11 @@ function updateChart(stationId) {
 
       return true;
     });
+  }
+
+  // Jahr filtern
+  if (selectedYear !== "all") {
+    filtered = filtered.filter(d => new Date(d.date_hour).getFullYear().toString() === selectedYear);
   }
 
   filtered.sort((a, b) => new Date(a.date_hour) - new Date(b.date_hour));

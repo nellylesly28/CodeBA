@@ -1382,3 +1382,2244 @@ Traceback (most recent call last):
   File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
     raise OperationalError("MySQL Connection not available.")
 mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-23 20:07:11,469 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:10:36,673 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:10:38,342 [INFO] Starte Forecast für: historisch
+2025-07-23 20:10:38,352 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 20:16:23,228 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:16:35,049 [INFO] Starte Forecast für: historisch
+2025-07-23 20:16:35,065 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 20:16:35,653 [WARNING] HTTP Fehler: 429 bei Gruppe 1
+2025-07-23 20:16:35,669 [INFO] Anfrage 2 (Offset 50)
+2025-07-23 20:17:36,235 [WARNING] HTTP Fehler: 504 bei Gruppe 2
+2025-07-23 20:17:36,250 [INFO] Anfrage 3 (Offset 100)
+2025-07-23 20:18:06,778 [WARNING] HTTP Fehler: 429 bei Gruppe 3
+2025-07-23 20:18:06,783 [INFO] Anfrage 4 (Offset 150)
+2025-07-23 20:18:07,504 [WARNING] HTTP Fehler: 429 bei Gruppe 4
+2025-07-23 20:18:07,508 [INFO] Anfrage 5 (Offset 200)
+2025-07-23 20:24:45,695 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-23 20:24:45,772 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-23 20:24:45,772 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-23 20:24:54,241 [INFO] Gruppe 5 gespeichert.
+2025-07-23 20:24:54,320 [INFO] Anfrage 6 (Offset 250)
+2025-07-23 20:24:55,094 [WARNING] HTTP Fehler: 429 bei Gruppe 6
+2025-07-23 20:24:55,094 [INFO] Anfrage 7 (Offset 300)
+2025-07-23 20:24:55,718 [WARNING] HTTP Fehler: 429 bei Gruppe 7
+2025-07-23 20:24:55,720 [INFO] Anfrage 8 (Offset 350)
+2025-07-23 20:24:56,307 [WARNING] HTTP Fehler: 429 bei Gruppe 8
+2025-07-23 20:24:56,311 [INFO] Anfrage 9 (Offset 400)
+2025-07-23 20:24:56,938 [WARNING] HTTP Fehler: 429 bei Gruppe 9
+2025-07-23 20:24:56,938 [INFO] Anfrage 10 (Offset 450)
+2025-07-23 20:24:57,517 [WARNING] HTTP Fehler: 429 bei Gruppe 10
+2025-07-23 20:24:57,533 [INFO] Anfrage 11 (Offset 500)
+2025-07-23 20:24:58,128 [WARNING] HTTP Fehler: 429 bei Gruppe 11
+2025-07-23 20:24:58,132 [INFO] Anfrage 12 (Offset 550)
+2025-07-23 20:24:58,820 [WARNING] HTTP Fehler: 429 bei Gruppe 12
+2025-07-23 20:24:58,828 [INFO] Anfrage 13 (Offset 600)
+2025-07-23 20:24:59,523 [WARNING] HTTP Fehler: 429 bei Gruppe 13
+2025-07-23 20:24:59,528 [INFO] Anfrage 14 (Offset 650)
+2025-07-23 20:25:00,167 [WARNING] HTTP Fehler: 429 bei Gruppe 14
+2025-07-23 20:25:00,376 [INFO] Anfrage 15 (Offset 700)
+2025-07-23 20:25:01,166 [WARNING] HTTP Fehler: 429 bei Gruppe 15
+2025-07-23 20:25:01,172 [INFO] Anfrage 16 (Offset 750)
+2025-07-23 20:25:01,929 [WARNING] HTTP Fehler: 429 bei Gruppe 16
+2025-07-23 20:25:01,933 [INFO] Anfrage 17 (Offset 800)
+2025-07-23 20:25:02,537 [WARNING] HTTP Fehler: 429 bei Gruppe 17
+2025-07-23 20:25:02,541 [INFO] Anfrage 18 (Offset 850)
+2025-07-23 20:25:03,148 [WARNING] HTTP Fehler: 429 bei Gruppe 18
+2025-07-23 20:25:03,148 [INFO] Anfrage 19 (Offset 900)
+2025-07-23 20:25:03,759 [WARNING] HTTP Fehler: 429 bei Gruppe 19
+2025-07-23 20:25:03,776 [INFO] Anfrage 20 (Offset 950)
+2025-07-23 20:25:04,402 [WARNING] HTTP Fehler: 429 bei Gruppe 20
+2025-07-23 20:25:04,402 [INFO] Anfrage 21 (Offset 1000)
+2025-07-23 20:25:05,202 [WARNING] HTTP Fehler: 429 bei Gruppe 21
+2025-07-23 20:25:05,205 [INFO] Anfrage 22 (Offset 1050)
+2025-07-23 20:25:05,854 [WARNING] HTTP Fehler: 429 bei Gruppe 22
+2025-07-23 20:25:05,859 [INFO] Anfrage 23 (Offset 1100)
+2025-07-23 20:25:06,507 [WARNING] HTTP Fehler: 429 bei Gruppe 23
+2025-07-23 20:25:06,512 [INFO] Anfrage 24 (Offset 1150)
+2025-07-23 20:25:07,184 [WARNING] HTTP Fehler: 429 bei Gruppe 24
+2025-07-23 20:25:07,184 [INFO] Anfrage 25 (Offset 1200)
+2025-07-23 20:25:07,766 [WARNING] HTTP Fehler: 429 bei Gruppe 25
+2025-07-23 20:25:07,766 [INFO] Anfrage 26 (Offset 1250)
+2025-07-23 20:25:08,477 [WARNING] HTTP Fehler: 429 bei Gruppe 26
+2025-07-23 20:25:08,482 [INFO] Anfrage 27 (Offset 1300)
+2025-07-23 20:25:09,164 [WARNING] HTTP Fehler: 429 bei Gruppe 27
+2025-07-23 20:25:09,164 [INFO] Anfrage 28 (Offset 1350)
+2025-07-23 20:25:09,756 [WARNING] HTTP Fehler: 429 bei Gruppe 28
+2025-07-23 20:25:09,759 [INFO] Alle Koordinaten wurden verarbeitet.
+2025-07-23 20:27:23,581 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:29:52,140 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:30:06,638 [INFO] Starte Forecast für: aktuell
+2025-07-23 20:30:06,653 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 20:30:08,137 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:08,139 [INFO] Gruppe 1 gespeichert.
+2025-07-23 20:30:08,147 [INFO] Anfrage 2 (Offset 50)
+2025-07-23 20:30:09,637 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:09,637 [INFO] Gruppe 2 gespeichert.
+2025-07-23 20:30:09,637 [INFO] Anfrage 3 (Offset 100)
+2025-07-23 20:30:11,070 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:11,070 [INFO] Gruppe 3 gespeichert.
+2025-07-23 20:30:11,070 [INFO] Anfrage 4 (Offset 150)
+2025-07-23 20:30:12,602 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:12,602 [INFO] Gruppe 4 gespeichert.
+2025-07-23 20:30:12,602 [INFO] Anfrage 5 (Offset 200)
+2025-07-23 20:30:14,251 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:14,253 [INFO] Gruppe 5 gespeichert.
+2025-07-23 20:30:14,259 [INFO] Anfrage 6 (Offset 250)
+2025-07-23 20:30:15,807 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:15,807 [INFO] Gruppe 6 gespeichert.
+2025-07-23 20:30:15,807 [INFO] Anfrage 7 (Offset 300)
+2025-07-23 20:30:17,244 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:17,244 [INFO] Gruppe 7 gespeichert.
+2025-07-23 20:30:17,244 [INFO] Anfrage 8 (Offset 350)
+2025-07-23 20:30:18,630 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:18,630 [INFO] Gruppe 8 gespeichert.
+2025-07-23 20:30:18,630 [INFO] Anfrage 9 (Offset 400)
+2025-07-23 20:30:20,144 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:20,144 [INFO] Gruppe 9 gespeichert.
+2025-07-23 20:30:20,160 [INFO] Anfrage 10 (Offset 450)
+2025-07-23 20:30:21,848 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:21,848 [INFO] Gruppe 10 gespeichert.
+2025-07-23 20:30:21,848 [INFO] Anfrage 11 (Offset 500)
+2025-07-23 20:30:23,428 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:23,428 [INFO] Gruppe 11 gespeichert.
+2025-07-23 20:30:23,428 [INFO] Anfrage 12 (Offset 550)
+2025-07-23 20:30:24,831 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:30:24,831 [INFO] Gruppe 12 gespeichert.
+2025-07-23 20:30:24,847 [INFO] Anfrage 13 (Offset 600)
+2025-07-23 20:30:25,473 [WARNING] HTTP Fehler: 429 bei Gruppe 13
+2025-07-23 20:30:25,473 [INFO] Anfrage 14 (Offset 650)
+2025-07-23 20:30:26,047 [WARNING] HTTP Fehler: 429 bei Gruppe 14
+2025-07-23 20:30:26,059 [INFO] Anfrage 15 (Offset 700)
+2025-07-23 20:30:26,640 [WARNING] HTTP Fehler: 429 bei Gruppe 15
+2025-07-23 20:30:26,652 [INFO] Anfrage 16 (Offset 750)
+2025-07-23 20:30:27,245 [WARNING] HTTP Fehler: 429 bei Gruppe 16
+2025-07-23 20:30:27,249 [INFO] Anfrage 17 (Offset 800)
+2025-07-23 20:30:27,915 [WARNING] HTTP Fehler: 429 bei Gruppe 17
+2025-07-23 20:30:27,915 [INFO] Anfrage 18 (Offset 850)
+2025-07-23 20:30:28,531 [WARNING] HTTP Fehler: 429 bei Gruppe 18
+2025-07-23 20:30:28,534 [INFO] Anfrage 19 (Offset 900)
+2025-07-23 20:30:29,096 [WARNING] HTTP Fehler: 429 bei Gruppe 19
+2025-07-23 20:30:29,106 [INFO] Anfrage 20 (Offset 950)
+2025-07-23 20:30:29,713 [WARNING] HTTP Fehler: 429 bei Gruppe 20
+2025-07-23 20:30:29,713 [INFO] Anfrage 21 (Offset 1000)
+2025-07-23 20:30:30,295 [WARNING] HTTP Fehler: 429 bei Gruppe 21
+2025-07-23 20:30:30,301 [INFO] Anfrage 22 (Offset 1050)
+2025-07-23 20:30:30,890 [WARNING] HTTP Fehler: 429 bei Gruppe 22
+2025-07-23 20:30:30,891 [INFO] Anfrage 23 (Offset 1100)
+2025-07-23 20:30:31,452 [WARNING] HTTP Fehler: 429 bei Gruppe 23
+2025-07-23 20:30:31,455 [INFO] Anfrage 24 (Offset 1150)
+2025-07-23 20:30:32,085 [WARNING] HTTP Fehler: 429 bei Gruppe 24
+2025-07-23 20:30:32,090 [INFO] Anfrage 25 (Offset 1200)
+2025-07-23 20:30:32,718 [WARNING] HTTP Fehler: 429 bei Gruppe 25
+2025-07-23 20:30:32,718 [INFO] Anfrage 26 (Offset 1250)
+2025-07-23 20:30:33,377 [WARNING] HTTP Fehler: 429 bei Gruppe 26
+2025-07-23 20:30:33,390 [INFO] Anfrage 27 (Offset 1300)
+2025-07-23 20:30:33,960 [WARNING] HTTP Fehler: 429 bei Gruppe 27
+2025-07-23 20:30:33,976 [INFO] Anfrage 28 (Offset 1350)
+2025-07-23 20:30:34,608 [WARNING] HTTP Fehler: 429 bei Gruppe 28
+2025-07-23 20:30:34,627 [INFO] Anfrage 29 (Offset 1400)
+2025-07-23 20:30:35,194 [WARNING] HTTP Fehler: 429 bei Gruppe 29
+2025-07-23 20:30:35,194 [INFO] Anfrage 30 (Offset 1450)
+2025-07-23 20:30:35,885 [WARNING] HTTP Fehler: 429 bei Gruppe 30
+2025-07-23 20:30:35,885 [INFO] Anfrage 31 (Offset 1500)
+2025-07-23 20:30:36,669 [WARNING] HTTP Fehler: 429 bei Gruppe 31
+2025-07-23 20:30:36,672 [INFO] Anfrage 32 (Offset 1550)
+2025-07-23 20:30:37,286 [WARNING] HTTP Fehler: 429 bei Gruppe 32
+2025-07-23 20:30:37,290 [INFO] Anfrage 33 (Offset 1600)
+2025-07-23 20:30:37,888 [WARNING] HTTP Fehler: 429 bei Gruppe 33
+2025-07-23 20:30:37,893 [INFO] Anfrage 34 (Offset 1650)
+2025-07-23 20:30:38,648 [WARNING] HTTP Fehler: 429 bei Gruppe 34
+2025-07-23 20:30:38,661 [INFO] Anfrage 35 (Offset 1700)
+2025-07-23 20:30:39,361 [WARNING] HTTP Fehler: 429 bei Gruppe 35
+2025-07-23 20:30:39,361 [INFO] Anfrage 36 (Offset 1750)
+2025-07-23 20:30:40,009 [WARNING] HTTP Fehler: 429 bei Gruppe 36
+2025-07-23 20:30:40,025 [INFO] Anfrage 37 (Offset 1800)
+2025-07-23 20:30:40,667 [WARNING] HTTP Fehler: 429 bei Gruppe 37
+2025-07-23 20:30:40,667 [INFO] Anfrage 38 (Offset 1850)
+2025-07-23 20:30:41,325 [WARNING] HTTP Fehler: 429 bei Gruppe 38
+2025-07-23 20:30:41,329 [INFO] Anfrage 39 (Offset 1900)
+2025-07-23 20:30:41,992 [WARNING] HTTP Fehler: 429 bei Gruppe 39
+2025-07-23 20:30:41,992 [INFO] Anfrage 40 (Offset 1950)
+2025-07-23 20:30:42,660 [WARNING] HTTP Fehler: 429 bei Gruppe 40
+2025-07-23 20:30:42,660 [INFO] Anfrage 41 (Offset 2000)
+2025-07-23 20:30:43,289 [WARNING] HTTP Fehler: 429 bei Gruppe 41
+2025-07-23 20:30:43,304 [INFO] Anfrage 42 (Offset 2050)
+2025-07-23 20:30:43,971 [WARNING] HTTP Fehler: 429 bei Gruppe 42
+2025-07-23 20:30:43,978 [INFO] Anfrage 43 (Offset 2100)
+2025-07-23 20:30:44,568 [WARNING] HTTP Fehler: 429 bei Gruppe 43
+2025-07-23 20:30:44,582 [INFO] Anfrage 44 (Offset 2150)
+2025-07-23 20:30:45,174 [WARNING] HTTP Fehler: 429 bei Gruppe 44
+2025-07-23 20:30:45,174 [INFO] Anfrage 45 (Offset 2200)
+2025-07-23 20:30:45,800 [WARNING] HTTP Fehler: 429 bei Gruppe 45
+2025-07-23 20:30:45,803 [INFO] Anfrage 46 (Offset 2250)
+2025-07-23 20:30:46,413 [WARNING] HTTP Fehler: 429 bei Gruppe 46
+2025-07-23 20:30:46,429 [INFO] Anfrage 47 (Offset 2300)
+2025-07-23 20:30:46,995 [WARNING] HTTP Fehler: 429 bei Gruppe 47
+2025-07-23 20:30:46,995 [INFO] Anfrage 48 (Offset 2350)
+2025-07-23 20:30:47,608 [WARNING] HTTP Fehler: 429 bei Gruppe 48
+2025-07-23 20:30:47,639 [INFO] Anfrage 49 (Offset 2400)
+2025-07-23 20:30:48,307 [WARNING] HTTP Fehler: 429 bei Gruppe 49
+2025-07-23 20:30:48,307 [INFO] Anfrage 50 (Offset 2450)
+2025-07-23 20:30:48,904 [WARNING] HTTP Fehler: 429 bei Gruppe 50
+2025-07-23 20:30:48,904 [INFO] Anfrage 51 (Offset 2500)
+2025-07-23 20:30:49,452 [WARNING] HTTP Fehler: 429 bei Gruppe 51
+2025-07-23 20:30:49,468 [INFO] Anfrage 52 (Offset 2550)
+2025-07-23 20:30:50,087 [WARNING] HTTP Fehler: 429 bei Gruppe 52
+2025-07-23 20:30:50,093 [INFO] Anfrage 53 (Offset 2600)
+2025-07-23 20:30:50,736 [WARNING] HTTP Fehler: 429 bei Gruppe 53
+2025-07-23 20:30:50,736 [INFO] Anfrage 54 (Offset 2650)
+2025-07-23 20:30:51,295 [WARNING] HTTP Fehler: 429 bei Gruppe 54
+2025-07-23 20:30:51,295 [INFO] Anfrage 55 (Offset 2700)
+2025-07-23 20:30:51,890 [WARNING] HTTP Fehler: 429 bei Gruppe 55
+2025-07-23 20:30:51,890 [INFO] Anfrage 56 (Offset 2750)
+2025-07-23 20:30:52,455 [WARNING] HTTP Fehler: 429 bei Gruppe 56
+2025-07-23 20:30:52,460 [INFO] Anfrage 57 (Offset 2800)
+2025-07-23 20:30:53,094 [WARNING] HTTP Fehler: 429 bei Gruppe 57
+2025-07-23 20:30:53,100 [INFO] Anfrage 58 (Offset 2850)
+2025-07-23 20:30:53,635 [WARNING] HTTP Fehler: 429 bei Gruppe 58
+2025-07-23 20:30:53,635 [INFO] Anfrage 59 (Offset 2900)
+2025-07-23 20:30:54,198 [WARNING] HTTP Fehler: 429 bei Gruppe 59
+2025-07-23 20:30:54,198 [INFO] Anfrage 60 (Offset 2950)
+2025-07-23 20:30:54,795 [WARNING] HTTP Fehler: 429 bei Gruppe 60
+2025-07-23 20:30:54,795 [INFO] Anfrage 61 (Offset 3000)
+2025-07-23 20:30:55,375 [WARNING] HTTP Fehler: 429 bei Gruppe 61
+2025-07-23 20:30:55,375 [INFO] Anfrage 62 (Offset 3050)
+2025-07-23 20:30:55,946 [WARNING] HTTP Fehler: 429 bei Gruppe 62
+2025-07-23 20:30:55,955 [INFO] Anfrage 63 (Offset 3100)
+2025-07-23 20:30:56,558 [WARNING] HTTP Fehler: 429 bei Gruppe 63
+2025-07-23 20:30:56,563 [INFO] Anfrage 64 (Offset 3150)
+2025-07-23 20:30:57,207 [WARNING] HTTP Fehler: 429 bei Gruppe 64
+2025-07-23 20:30:57,211 [INFO] Anfrage 65 (Offset 3200)
+2025-07-23 20:30:57,845 [WARNING] HTTP Fehler: 429 bei Gruppe 65
+2025-07-23 20:30:57,849 [INFO] Anfrage 66 (Offset 3250)
+2025-07-23 20:30:58,464 [WARNING] HTTP Fehler: 429 bei Gruppe 66
+2025-07-23 20:30:58,464 [INFO] Anfrage 67 (Offset 3300)
+2025-07-23 20:30:59,337 [WARNING] HTTP Fehler: 429 bei Gruppe 67
+2025-07-23 20:30:59,342 [INFO] Anfrage 68 (Offset 3350)
+2025-07-23 20:30:59,996 [WARNING] HTTP Fehler: 429 bei Gruppe 68
+2025-07-23 20:30:59,996 [INFO] Anfrage 69 (Offset 3400)
+2025-07-23 20:31:00,619 [WARNING] HTTP Fehler: 429 bei Gruppe 69
+2025-07-23 20:31:00,624 [INFO] Anfrage 70 (Offset 3450)
+2025-07-23 20:31:01,173 [WARNING] HTTP Fehler: 429 bei Gruppe 70
+2025-07-23 20:31:01,178 [INFO] Anfrage 71 (Offset 3500)
+2025-07-23 20:31:01,823 [WARNING] HTTP Fehler: 429 bei Gruppe 71
+2025-07-23 20:31:01,826 [INFO] Anfrage 72 (Offset 3550)
+2025-07-23 20:31:03,462 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:03,462 [INFO] Gruppe 72 gespeichert.
+2025-07-23 20:31:03,482 [INFO] Anfrage 73 (Offset 3600)
+2025-07-23 20:31:05,252 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:05,254 [INFO] Gruppe 73 gespeichert.
+2025-07-23 20:31:05,258 [INFO] Anfrage 74 (Offset 3650)
+2025-07-23 20:31:06,900 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:06,900 [INFO] Gruppe 74 gespeichert.
+2025-07-23 20:31:06,900 [INFO] Anfrage 75 (Offset 3700)
+2025-07-23 20:31:08,920 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:08,920 [INFO] Gruppe 75 gespeichert.
+2025-07-23 20:31:08,928 [INFO] Anfrage 76 (Offset 3750)
+2025-07-23 20:31:11,280 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:11,280 [INFO] Gruppe 76 gespeichert.
+2025-07-23 20:31:11,285 [INFO] Anfrage 77 (Offset 3800)
+2025-07-23 20:31:12,842 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:12,842 [INFO] Gruppe 77 gespeichert.
+2025-07-23 20:31:12,842 [INFO] Anfrage 78 (Offset 3850)
+2025-07-23 20:31:14,361 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:14,369 [INFO] Gruppe 78 gespeichert.
+2025-07-23 20:31:14,369 [INFO] Anfrage 79 (Offset 3900)
+2025-07-23 20:31:15,909 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:15,918 [INFO] Gruppe 79 gespeichert.
+2025-07-23 20:31:15,920 [INFO] Anfrage 80 (Offset 3950)
+2025-07-23 20:31:17,382 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:17,391 [INFO] Gruppe 80 gespeichert.
+2025-07-23 20:31:17,393 [INFO] Anfrage 81 (Offset 4000)
+2025-07-23 20:31:18,935 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:18,937 [INFO] Gruppe 81 gespeichert.
+2025-07-23 20:31:18,943 [INFO] Anfrage 82 (Offset 4050)
+2025-07-23 20:31:20,413 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:20,416 [INFO] Gruppe 82 gespeichert.
+2025-07-23 20:31:20,422 [INFO] Anfrage 83 (Offset 4100)
+2025-07-23 20:31:21,985 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:31:21,987 [INFO] Gruppe 83 gespeichert.
+2025-07-23 20:31:21,992 [INFO] Anfrage 84 (Offset 4150)
+2025-07-23 20:31:22,585 [WARNING] HTTP Fehler: 429 bei Gruppe 84
+2025-07-23 20:31:22,592 [INFO] Anfrage 85 (Offset 4200)
+2025-07-23 20:31:23,228 [WARNING] HTTP Fehler: 429 bei Gruppe 85
+2025-07-23 20:31:23,228 [INFO] Anfrage 86 (Offset 4250)
+2025-07-23 20:31:23,849 [WARNING] HTTP Fehler: 429 bei Gruppe 86
+2025-07-23 20:31:23,849 [INFO] Anfrage 87 (Offset 4300)
+2025-07-23 20:31:24,464 [WARNING] HTTP Fehler: 429 bei Gruppe 87
+2025-07-23 20:31:24,470 [INFO] Anfrage 88 (Offset 4350)
+2025-07-23 20:31:25,093 [WARNING] HTTP Fehler: 429 bei Gruppe 88
+2025-07-23 20:31:25,093 [INFO] Anfrage 89 (Offset 4400)
+2025-07-23 20:31:25,677 [WARNING] HTTP Fehler: 429 bei Gruppe 89
+2025-07-23 20:31:25,677 [INFO] Anfrage 90 (Offset 4450)
+2025-07-23 20:31:26,242 [WARNING] HTTP Fehler: 429 bei Gruppe 90
+2025-07-23 20:31:26,242 [INFO] Anfrage 91 (Offset 4500)
+2025-07-23 20:31:26,848 [WARNING] HTTP Fehler: 429 bei Gruppe 91
+2025-07-23 20:31:26,853 [INFO] Anfrage 92 (Offset 4550)
+2025-07-23 20:31:27,540 [WARNING] HTTP Fehler: 429 bei Gruppe 92
+2025-07-23 20:31:27,545 [INFO] Anfrage 93 (Offset 4600)
+2025-07-23 20:31:28,179 [WARNING] HTTP Fehler: 429 bei Gruppe 93
+2025-07-23 20:31:28,179 [INFO] Anfrage 94 (Offset 4650)
+2025-07-23 20:31:28,774 [WARNING] HTTP Fehler: 429 bei Gruppe 94
+2025-07-23 20:31:28,774 [INFO] Anfrage 95 (Offset 4700)
+2025-07-23 20:31:29,439 [WARNING] HTTP Fehler: 429 bei Gruppe 95
+2025-07-23 20:31:29,445 [INFO] Anfrage 96 (Offset 4750)
+2025-07-23 20:31:30,120 [WARNING] HTTP Fehler: 429 bei Gruppe 96
+2025-07-23 20:31:30,137 [INFO] Anfrage 97 (Offset 4800)
+2025-07-23 20:31:30,754 [WARNING] HTTP Fehler: 429 bei Gruppe 97
+2025-07-23 20:31:30,756 [INFO] Anfrage 98 (Offset 4850)
+2025-07-23 20:31:31,546 [WARNING] HTTP Fehler: 429 bei Gruppe 98
+2025-07-23 20:31:31,553 [INFO] Anfrage 99 (Offset 4900)
+2025-07-23 20:31:32,350 [WARNING] HTTP Fehler: 429 bei Gruppe 99
+2025-07-23 20:31:32,364 [INFO] Anfrage 100 (Offset 4950)
+2025-07-23 20:31:33,045 [WARNING] HTTP Fehler: 429 bei Gruppe 100
+2025-07-23 20:31:33,050 [INFO] Anfrage 101 (Offset 5000)
+2025-07-23 20:31:33,661 [WARNING] HTTP Fehler: 429 bei Gruppe 101
+2025-07-23 20:31:33,671 [INFO] Anfrage 102 (Offset 5050)
+2025-07-23 20:31:34,337 [WARNING] HTTP Fehler: 429 bei Gruppe 102
+2025-07-23 20:31:34,342 [INFO] Anfrage 103 (Offset 5100)
+2025-07-23 20:31:34,970 [WARNING] HTTP Fehler: 429 bei Gruppe 103
+2025-07-23 20:31:34,975 [INFO] Anfrage 104 (Offset 5150)
+2025-07-23 20:31:35,526 [WARNING] HTTP Fehler: 429 bei Gruppe 104
+2025-07-23 20:31:35,540 [INFO] Anfrage 105 (Offset 5200)
+2025-07-23 20:31:36,146 [WARNING] HTTP Fehler: 429 bei Gruppe 105
+2025-07-23 20:31:36,146 [INFO] Anfrage 106 (Offset 5250)
+2025-07-23 20:31:36,835 [WARNING] HTTP Fehler: 429 bei Gruppe 106
+2025-07-23 20:31:36,842 [INFO] Anfrage 107 (Offset 5300)
+2025-07-23 20:31:37,442 [WARNING] HTTP Fehler: 429 bei Gruppe 107
+2025-07-23 20:31:37,442 [INFO] Anfrage 108 (Offset 5350)
+2025-07-23 20:31:38,048 [WARNING] HTTP Fehler: 429 bei Gruppe 108
+2025-07-23 20:31:38,048 [INFO] Anfrage 109 (Offset 5400)
+2025-07-23 20:31:38,700 [WARNING] HTTP Fehler: 429 bei Gruppe 109
+2025-07-23 20:31:38,706 [INFO] Anfrage 110 (Offset 5450)
+2025-07-23 20:31:39,323 [WARNING] HTTP Fehler: 429 bei Gruppe 110
+2025-07-23 20:31:39,336 [INFO] Anfrage 111 (Offset 5500)
+2025-07-23 20:31:39,911 [WARNING] HTTP Fehler: 429 bei Gruppe 111
+2025-07-23 20:31:39,917 [INFO] Anfrage 112 (Offset 5550)
+2025-07-23 20:31:40,553 [WARNING] HTTP Fehler: 429 bei Gruppe 112
+2025-07-23 20:31:40,558 [INFO] Anfrage 113 (Offset 5600)
+2025-07-23 20:31:41,429 [WARNING] HTTP Fehler: 429 bei Gruppe 113
+2025-07-23 20:31:41,435 [INFO] Anfrage 114 (Offset 5650)
+2025-07-23 20:31:42,175 [WARNING] HTTP Fehler: 429 bei Gruppe 114
+2025-07-23 20:31:42,191 [INFO] Anfrage 115 (Offset 5700)
+2025-07-23 20:31:42,781 [WARNING] HTTP Fehler: 429 bei Gruppe 115
+2025-07-23 20:31:42,781 [INFO] Anfrage 116 (Offset 5750)
+2025-07-23 20:31:43,440 [WARNING] HTTP Fehler: 429 bei Gruppe 116
+2025-07-23 20:31:43,440 [INFO] Anfrage 117 (Offset 5800)
+2025-07-23 20:31:44,022 [WARNING] HTTP Fehler: 429 bei Gruppe 117
+2025-07-23 20:31:44,022 [INFO] Anfrage 118 (Offset 5850)
+2025-07-23 20:31:44,571 [WARNING] HTTP Fehler: 429 bei Gruppe 118
+2025-07-23 20:31:44,571 [INFO] Anfrage 119 (Offset 5900)
+2025-07-23 20:31:45,151 [WARNING] HTTP Fehler: 429 bei Gruppe 119
+2025-07-23 20:31:45,151 [INFO] Anfrage 120 (Offset 5950)
+2025-07-23 20:31:45,775 [WARNING] HTTP Fehler: 429 bei Gruppe 120
+2025-07-23 20:31:45,775 [INFO] Anfrage 121 (Offset 6000)
+2025-07-23 20:31:46,377 [WARNING] HTTP Fehler: 429 bei Gruppe 121
+2025-07-23 20:31:46,393 [INFO] Anfrage 122 (Offset 6050)
+2025-07-23 20:31:47,029 [WARNING] HTTP Fehler: 429 bei Gruppe 122
+2025-07-23 20:31:47,034 [INFO] Anfrage 123 (Offset 6100)
+2025-07-23 20:31:47,583 [WARNING] HTTP Fehler: 429 bei Gruppe 123
+2025-07-23 20:31:47,588 [INFO] Anfrage 124 (Offset 6150)
+2025-07-23 20:31:48,302 [WARNING] HTTP Fehler: 429 bei Gruppe 124
+2025-07-23 20:31:48,309 [INFO] Anfrage 125 (Offset 6200)
+2025-07-23 20:31:48,900 [WARNING] HTTP Fehler: 429 bei Gruppe 125
+2025-07-23 20:31:48,909 [INFO] Anfrage 126 (Offset 6250)
+2025-07-23 20:31:49,529 [WARNING] HTTP Fehler: 429 bei Gruppe 126
+2025-07-23 20:31:49,534 [INFO] Anfrage 127 (Offset 6300)
+2025-07-23 20:31:50,152 [WARNING] HTTP Fehler: 429 bei Gruppe 127
+2025-07-23 20:31:50,159 [INFO] Anfrage 128 (Offset 6350)
+2025-07-23 20:31:50,726 [WARNING] HTTP Fehler: 429 bei Gruppe 128
+2025-07-23 20:31:50,726 [INFO] Anfrage 129 (Offset 6400)
+2025-07-23 20:31:51,305 [WARNING] HTTP Fehler: 429 bei Gruppe 129
+2025-07-23 20:31:51,305 [INFO] Anfrage 130 (Offset 6450)
+2025-07-23 20:31:51,917 [WARNING] HTTP Fehler: 429 bei Gruppe 130
+2025-07-23 20:31:51,925 [INFO] Anfrage 131 (Offset 6500)
+2025-07-23 20:31:52,538 [WARNING] HTTP Fehler: 429 bei Gruppe 131
+2025-07-23 20:31:52,541 [INFO] Anfrage 132 (Offset 6550)
+2025-07-23 20:31:53,112 [WARNING] HTTP Fehler: 429 bei Gruppe 132
+2025-07-23 20:31:53,128 [INFO] Anfrage 133 (Offset 6600)
+2025-07-23 20:31:53,663 [WARNING] HTTP Fehler: 429 bei Gruppe 133
+2025-07-23 20:31:53,679 [INFO] Anfrage 134 (Offset 6650)
+2025-07-23 20:31:54,243 [WARNING] HTTP Fehler: 429 bei Gruppe 134
+2025-07-23 20:31:54,259 [INFO] Anfrage 135 (Offset 6700)
+2025-07-23 20:31:54,880 [WARNING] HTTP Fehler: 429 bei Gruppe 135
+2025-07-23 20:31:54,896 [INFO] Anfrage 136 (Offset 6750)
+2025-07-23 20:31:55,449 [WARNING] HTTP Fehler: 429 bei Gruppe 136
+2025-07-23 20:31:55,454 [INFO] Anfrage 137 (Offset 6800)
+2025-07-23 20:31:56,029 [WARNING] HTTP Fehler: 429 bei Gruppe 137
+2025-07-23 20:31:56,034 [INFO] Anfrage 138 (Offset 6850)
+2025-07-23 20:31:56,666 [WARNING] HTTP Fehler: 429 bei Gruppe 138
+2025-07-23 20:31:56,681 [INFO] Anfrage 139 (Offset 6900)
+2025-07-23 20:31:57,324 [WARNING] HTTP Fehler: 429 bei Gruppe 139
+2025-07-23 20:31:57,324 [INFO] Anfrage 140 (Offset 6950)
+2025-07-23 20:31:57,919 [WARNING] HTTP Fehler: 429 bei Gruppe 140
+2025-07-23 20:31:57,935 [INFO] Anfrage 141 (Offset 7000)
+2025-07-23 20:31:58,536 [WARNING] HTTP Fehler: 429 bei Gruppe 141
+2025-07-23 20:31:58,541 [INFO] Anfrage 142 (Offset 7050)
+2025-07-23 20:31:59,182 [WARNING] HTTP Fehler: 429 bei Gruppe 142
+2025-07-23 20:31:59,189 [INFO] Anfrage 143 (Offset 7100)
+2025-07-23 20:31:59,892 [WARNING] HTTP Fehler: 429 bei Gruppe 143
+2025-07-23 20:31:59,937 [INFO] Anfrage 144 (Offset 7150)
+2025-07-23 20:32:00,747 [WARNING] HTTP Fehler: 429 bei Gruppe 144
+2025-07-23 20:32:00,754 [INFO] Anfrage 145 (Offset 7200)
+2025-07-23 20:32:01,411 [WARNING] HTTP Fehler: 429 bei Gruppe 145
+2025-07-23 20:32:01,416 [INFO] Anfrage 146 (Offset 7250)
+2025-07-23 20:32:02,067 [WARNING] HTTP Fehler: 429 bei Gruppe 146
+2025-07-23 20:32:02,075 [INFO] Anfrage 147 (Offset 7300)
+2025-07-23 20:32:03,664 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:03,667 [INFO] Gruppe 147 gespeichert.
+2025-07-23 20:32:03,667 [INFO] Anfrage 148 (Offset 7350)
+2025-07-23 20:32:05,383 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:05,386 [INFO] Gruppe 148 gespeichert.
+2025-07-23 20:32:05,392 [INFO] Anfrage 149 (Offset 7400)
+2025-07-23 20:32:07,006 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:07,009 [INFO] Gruppe 149 gespeichert.
+2025-07-23 20:32:07,019 [INFO] Anfrage 150 (Offset 7450)
+2025-07-23 20:32:08,832 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:08,835 [INFO] Gruppe 150 gespeichert.
+2025-07-23 20:32:08,843 [INFO] Anfrage 151 (Offset 7500)
+2025-07-23 20:32:10,382 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:10,382 [INFO] Gruppe 151 gespeichert.
+2025-07-23 20:32:10,398 [INFO] Anfrage 152 (Offset 7550)
+2025-07-23 20:32:11,901 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:11,901 [INFO] Gruppe 152 gespeichert.
+2025-07-23 20:32:11,911 [INFO] Anfrage 153 (Offset 7600)
+2025-07-23 20:32:13,457 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:13,459 [INFO] Gruppe 153 gespeichert.
+2025-07-23 20:32:13,465 [INFO] Anfrage 154 (Offset 7650)
+2025-07-23 20:32:14,856 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:14,860 [INFO] Gruppe 154 gespeichert.
+2025-07-23 20:32:14,870 [INFO] Anfrage 155 (Offset 7700)
+2025-07-23 20:32:16,585 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:16,587 [INFO] Gruppe 155 gespeichert.
+2025-07-23 20:32:16,595 [INFO] Anfrage 156 (Offset 7750)
+2025-07-23 20:32:18,098 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:18,098 [INFO] Gruppe 156 gespeichert.
+2025-07-23 20:32:18,114 [INFO] Anfrage 157 (Offset 7800)
+2025-07-23 20:32:19,614 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:19,614 [INFO] Gruppe 157 gespeichert.
+2025-07-23 20:32:19,614 [INFO] Anfrage 158 (Offset 7850)
+2025-07-23 20:32:21,163 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:32:21,175 [INFO] Gruppe 158 gespeichert.
+2025-07-23 20:32:21,182 [INFO] Anfrage 159 (Offset 7900)
+2025-07-23 20:32:21,808 [WARNING] HTTP Fehler: 429 bei Gruppe 159
+2025-07-23 20:32:21,814 [INFO] Anfrage 160 (Offset 7950)
+2025-07-23 20:32:22,502 [WARNING] HTTP Fehler: 429 bei Gruppe 160
+2025-07-23 20:32:22,508 [INFO] Anfrage 161 (Offset 8000)
+2025-07-23 20:32:23,137 [WARNING] HTTP Fehler: 429 bei Gruppe 161
+2025-07-23 20:32:23,138 [INFO] Anfrage 162 (Offset 8050)
+2025-07-23 20:32:23,725 [WARNING] HTTP Fehler: 429 bei Gruppe 162
+2025-07-23 20:32:23,726 [INFO] Anfrage 163 (Offset 8100)
+2025-07-23 20:32:24,354 [WARNING] HTTP Fehler: 429 bei Gruppe 163
+2025-07-23 20:32:24,360 [INFO] Anfrage 164 (Offset 8150)
+2025-07-23 20:32:24,957 [WARNING] HTTP Fehler: 429 bei Gruppe 164
+2025-07-23 20:32:24,957 [INFO] Anfrage 165 (Offset 8200)
+2025-07-23 20:32:25,562 [WARNING] HTTP Fehler: 429 bei Gruppe 165
+2025-07-23 20:32:25,564 [INFO] Anfrage 166 (Offset 8250)
+2025-07-23 20:32:26,137 [WARNING] HTTP Fehler: 429 bei Gruppe 166
+2025-07-23 20:32:26,153 [INFO] Anfrage 167 (Offset 8300)
+2025-07-23 20:32:26,820 [WARNING] HTTP Fehler: 429 bei Gruppe 167
+2025-07-23 20:32:26,829 [INFO] Anfrage 168 (Offset 8350)
+2025-07-23 20:32:27,492 [WARNING] HTTP Fehler: 429 bei Gruppe 168
+2025-07-23 20:32:27,500 [INFO] Anfrage 169 (Offset 8400)
+2025-07-23 20:32:28,117 [WARNING] HTTP Fehler: 429 bei Gruppe 169
+2025-07-23 20:32:28,126 [INFO] Anfrage 170 (Offset 8450)
+2025-07-23 20:32:28,741 [WARNING] HTTP Fehler: 429 bei Gruppe 170
+2025-07-23 20:32:28,741 [INFO] Anfrage 171 (Offset 8500)
+2025-07-23 20:32:29,431 [WARNING] HTTP Fehler: 429 bei Gruppe 171
+2025-07-23 20:32:29,444 [INFO] Anfrage 172 (Offset 8550)
+2025-07-23 20:32:30,005 [WARNING] HTTP Fehler: 429 bei Gruppe 172
+2025-07-23 20:32:30,014 [INFO] Anfrage 173 (Offset 8600)
+2025-07-23 20:32:30,801 [WARNING] HTTP Fehler: 429 bei Gruppe 173
+2025-07-23 20:32:30,809 [INFO] Anfrage 174 (Offset 8650)
+2025-07-23 20:32:31,437 [WARNING] HTTP Fehler: 429 bei Gruppe 174
+2025-07-23 20:32:31,437 [INFO] Anfrage 175 (Offset 8700)
+2025-07-23 20:32:32,029 [WARNING] HTTP Fehler: 429 bei Gruppe 175
+2025-07-23 20:32:32,036 [INFO] Anfrage 176 (Offset 8750)
+2025-07-23 20:32:32,621 [WARNING] HTTP Fehler: 429 bei Gruppe 176
+2025-07-23 20:32:32,621 [INFO] Anfrage 177 (Offset 8800)
+2025-07-23 20:32:33,200 [WARNING] HTTP Fehler: 429 bei Gruppe 177
+2025-07-23 20:32:33,207 [INFO] Anfrage 178 (Offset 8850)
+2025-07-23 20:32:33,865 [WARNING] HTTP Fehler: 429 bei Gruppe 178
+2025-07-23 20:32:33,865 [INFO] Anfrage 179 (Offset 8900)
+2025-07-23 20:32:34,499 [WARNING] HTTP Fehler: 429 bei Gruppe 179
+2025-07-23 20:32:34,509 [INFO] Anfrage 180 (Offset 8950)
+2025-07-23 20:32:35,085 [WARNING] HTTP Fehler: 429 bei Gruppe 180
+2025-07-23 20:32:35,091 [INFO] Anfrage 181 (Offset 9000)
+2025-07-23 20:32:35,732 [WARNING] HTTP Fehler: 429 bei Gruppe 181
+2025-07-23 20:32:35,740 [INFO] Anfrage 182 (Offset 9050)
+2025-07-23 20:32:36,349 [WARNING] HTTP Fehler: 429 bei Gruppe 182
+2025-07-23 20:32:36,367 [INFO] Anfrage 183 (Offset 9100)
+2025-07-23 20:32:36,980 [WARNING] HTTP Fehler: 429 bei Gruppe 183
+2025-07-23 20:32:36,987 [INFO] Anfrage 184 (Offset 9150)
+2025-07-23 20:32:37,664 [WARNING] HTTP Fehler: 429 bei Gruppe 184
+2025-07-23 20:32:37,664 [INFO] Anfrage 185 (Offset 9200)
+2025-07-23 20:32:38,274 [WARNING] HTTP Fehler: 429 bei Gruppe 185
+2025-07-23 20:32:38,290 [INFO] Anfrage 186 (Offset 9250)
+2025-07-23 20:32:38,857 [WARNING] HTTP Fehler: 429 bei Gruppe 186
+2025-07-23 20:32:38,857 [INFO] Anfrage 187 (Offset 9300)
+2025-07-23 20:32:39,482 [WARNING] HTTP Fehler: 429 bei Gruppe 187
+2025-07-23 20:32:39,482 [INFO] Anfrage 188 (Offset 9350)
+2025-07-23 20:32:40,083 [WARNING] HTTP Fehler: 429 bei Gruppe 188
+2025-07-23 20:32:40,097 [INFO] Anfrage 189 (Offset 9400)
+2025-07-23 20:32:40,763 [WARNING] HTTP Fehler: 429 bei Gruppe 189
+2025-07-23 20:32:40,779 [INFO] Anfrage 190 (Offset 9450)
+2025-07-23 20:32:41,334 [WARNING] HTTP Fehler: 429 bei Gruppe 190
+2025-07-23 20:32:41,350 [INFO] Anfrage 191 (Offset 9500)
+2025-07-23 20:32:41,918 [WARNING] HTTP Fehler: 429 bei Gruppe 191
+2025-07-23 20:32:41,918 [INFO] Anfrage 192 (Offset 9550)
+2025-07-23 20:32:42,498 [WARNING] HTTP Fehler: 429 bei Gruppe 192
+2025-07-23 20:32:42,509 [INFO] Anfrage 193 (Offset 9600)
+2025-07-23 20:32:43,153 [WARNING] HTTP Fehler: 429 bei Gruppe 193
+2025-07-23 20:32:43,161 [INFO] Anfrage 194 (Offset 9650)
+2025-07-23 20:32:43,788 [WARNING] HTTP Fehler: 429 bei Gruppe 194
+2025-07-23 20:32:43,795 [INFO] Anfrage 195 (Offset 9700)
+2025-07-23 20:32:44,422 [WARNING] HTTP Fehler: 429 bei Gruppe 195
+2025-07-23 20:32:44,422 [INFO] Anfrage 196 (Offset 9750)
+2025-07-23 20:32:45,079 [WARNING] HTTP Fehler: 429 bei Gruppe 196
+2025-07-23 20:32:45,086 [INFO] Anfrage 197 (Offset 9800)
+2025-07-23 20:32:45,738 [WARNING] HTTP Fehler: 429 bei Gruppe 197
+2025-07-23 20:32:45,747 [INFO] Anfrage 198 (Offset 9850)
+2025-07-23 20:32:46,373 [WARNING] HTTP Fehler: 429 bei Gruppe 198
+2025-07-23 20:32:46,379 [INFO] Anfrage 199 (Offset 9900)
+2025-07-23 20:32:47,016 [WARNING] HTTP Fehler: 429 bei Gruppe 199
+2025-07-23 20:32:47,027 [INFO] Anfrage 200 (Offset 9950)
+2025-07-23 20:32:47,808 [WARNING] HTTP Fehler: 429 bei Gruppe 200
+2025-07-23 20:32:47,808 [INFO] Anfrage 201 (Offset 10000)
+2025-07-23 20:32:48,362 [WARNING] HTTP Fehler: 429 bei Gruppe 201
+2025-07-23 20:32:48,378 [INFO] Anfrage 202 (Offset 10050)
+2025-07-23 20:32:48,941 [WARNING] HTTP Fehler: 429 bei Gruppe 202
+2025-07-23 20:32:48,948 [INFO] Anfrage 203 (Offset 10100)
+2025-07-23 20:32:49,609 [WARNING] HTTP Fehler: 429 bei Gruppe 203
+2025-07-23 20:32:49,625 [INFO] Anfrage 204 (Offset 10150)
+2025-07-23 20:32:50,204 [WARNING] HTTP Fehler: 429 bei Gruppe 204
+2025-07-23 20:32:50,204 [INFO] Anfrage 205 (Offset 10200)
+2025-07-23 20:32:50,860 [WARNING] HTTP Fehler: 429 bei Gruppe 205
+2025-07-23 20:32:50,867 [INFO] Anfrage 206 (Offset 10250)
+2025-07-23 20:32:51,453 [WARNING] HTTP Fehler: 429 bei Gruppe 206
+2025-07-23 20:32:51,465 [INFO] Anfrage 207 (Offset 10300)
+2025-07-23 20:32:52,114 [WARNING] HTTP Fehler: 429 bei Gruppe 207
+2025-07-23 20:32:52,125 [INFO] Anfrage 208 (Offset 10350)
+2025-07-23 20:32:52,843 [WARNING] HTTP Fehler: 429 bei Gruppe 208
+2025-07-23 20:32:52,846 [INFO] Anfrage 209 (Offset 10400)
+2025-07-23 20:32:53,482 [WARNING] HTTP Fehler: 429 bei Gruppe 209
+2025-07-23 20:32:53,492 [INFO] Anfrage 210 (Offset 10450)
+2025-07-23 20:32:54,060 [WARNING] HTTP Fehler: 429 bei Gruppe 210
+2025-07-23 20:32:54,078 [INFO] Anfrage 211 (Offset 10500)
+2025-07-23 20:32:54,731 [WARNING] HTTP Fehler: 429 bei Gruppe 211
+2025-07-23 20:32:54,746 [INFO] Anfrage 212 (Offset 10550)
+2025-07-23 20:32:55,390 [WARNING] HTTP Fehler: 429 bei Gruppe 212
+2025-07-23 20:32:55,406 [INFO] Anfrage 213 (Offset 10600)
+2025-07-23 20:32:55,959 [WARNING] HTTP Fehler: 429 bei Gruppe 213
+2025-07-23 20:32:55,959 [INFO] Anfrage 214 (Offset 10650)
+2025-07-23 20:32:56,601 [WARNING] HTTP Fehler: 429 bei Gruppe 214
+2025-07-23 20:32:56,610 [INFO] Anfrage 215 (Offset 10700)
+2025-07-23 20:32:57,205 [WARNING] HTTP Fehler: 429 bei Gruppe 215
+2025-07-23 20:32:57,214 [INFO] Anfrage 216 (Offset 10750)
+2025-07-23 20:32:57,855 [WARNING] HTTP Fehler: 429 bei Gruppe 216
+2025-07-23 20:32:57,864 [INFO] Anfrage 217 (Offset 10800)
+2025-07-23 20:32:58,518 [WARNING] HTTP Fehler: 429 bei Gruppe 217
+2025-07-23 20:32:58,518 [INFO] Anfrage 218 (Offset 10850)
+2025-07-23 20:32:59,152 [WARNING] HTTP Fehler: 429 bei Gruppe 218
+2025-07-23 20:32:59,167 [INFO] Anfrage 219 (Offset 10900)
+2025-07-23 20:32:59,768 [WARNING] HTTP Fehler: 429 bei Gruppe 219
+2025-07-23 20:32:59,768 [INFO] Anfrage 220 (Offset 10950)
+2025-07-23 20:33:00,602 [WARNING] HTTP Fehler: 429 bei Gruppe 220
+2025-07-23 20:33:00,610 [INFO] Anfrage 221 (Offset 11000)
+2025-07-23 20:33:01,207 [WARNING] HTTP Fehler: 429 bei Gruppe 221
+2025-07-23 20:33:01,214 [INFO] Anfrage 222 (Offset 11050)
+2025-07-23 20:33:01,938 [WARNING] HTTP Fehler: 429 bei Gruppe 222
+2025-07-23 20:33:01,947 [INFO] Anfrage 223 (Offset 11100)
+2025-07-23 20:33:03,598 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:03,598 [INFO] Gruppe 223 gespeichert.
+2025-07-23 20:33:03,598 [INFO] Anfrage 224 (Offset 11150)
+2025-07-23 20:33:05,160 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:05,160 [INFO] Gruppe 224 gespeichert.
+2025-07-23 20:33:05,160 [INFO] Anfrage 225 (Offset 11200)
+2025-07-23 20:33:06,626 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:06,628 [INFO] Gruppe 225 gespeichert.
+2025-07-23 20:33:06,636 [INFO] Anfrage 226 (Offset 11250)
+2025-07-23 20:33:07,989 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:08,000 [INFO] Gruppe 226 gespeichert.
+2025-07-23 20:33:08,011 [INFO] Anfrage 227 (Offset 11300)
+2025-07-23 20:33:09,370 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:09,372 [INFO] Gruppe 227 gespeichert.
+2025-07-23 20:33:09,382 [INFO] Anfrage 228 (Offset 11350)
+2025-07-23 20:33:10,775 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:10,775 [INFO] Gruppe 228 gespeichert.
+2025-07-23 20:33:10,791 [INFO] Anfrage 229 (Offset 11400)
+2025-07-23 20:33:12,444 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:12,447 [INFO] Gruppe 229 gespeichert.
+2025-07-23 20:33:12,455 [INFO] Anfrage 230 (Offset 11450)
+2025-07-23 20:33:13,894 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:13,897 [INFO] Gruppe 230 gespeichert.
+2025-07-23 20:33:13,906 [INFO] Anfrage 231 (Offset 11500)
+2025-07-23 20:33:15,769 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:15,773 [INFO] Gruppe 231 gespeichert.
+2025-07-23 20:33:15,781 [INFO] Anfrage 232 (Offset 11550)
+2025-07-23 20:33:17,731 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:17,733 [INFO] Gruppe 232 gespeichert.
+2025-07-23 20:33:17,739 [INFO] Anfrage 233 (Offset 11600)
+2025-07-23 20:33:19,732 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:19,732 [INFO] Gruppe 233 gespeichert.
+2025-07-23 20:33:19,747 [INFO] Anfrage 234 (Offset 11650)
+2025-07-23 20:33:21,903 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 20:33:21,918 [INFO] Gruppe 234 gespeichert.
+2025-07-23 20:33:21,922 [INFO] Anfrage 235 (Offset 11700)
+2025-07-23 20:33:22,917 [WARNING] HTTP Fehler: 429 bei Gruppe 235
+2025-07-23 20:33:22,927 [INFO] Anfrage 236 (Offset 11750)
+2025-07-23 20:33:23,787 [WARNING] HTTP Fehler: 429 bei Gruppe 236
+2025-07-23 20:33:23,805 [INFO] Anfrage 237 (Offset 11800)
+2025-07-23 20:33:24,751 [WARNING] HTTP Fehler: 429 bei Gruppe 237
+2025-07-23 20:33:24,762 [INFO] Anfrage 238 (Offset 11850)
+2025-07-23 20:33:25,669 [WARNING] HTTP Fehler: 429 bei Gruppe 238
+2025-07-23 20:33:25,679 [INFO] Anfrage 239 (Offset 11900)
+2025-07-23 20:33:26,517 [WARNING] HTTP Fehler: 429 bei Gruppe 239
+2025-07-23 20:33:26,528 [INFO] Anfrage 240 (Offset 11950)
+2025-07-23 20:33:27,440 [WARNING] HTTP Fehler: 429 bei Gruppe 240
+2025-07-23 20:33:27,456 [INFO] Anfrage 241 (Offset 12000)
+2025-07-23 20:33:28,253 [WARNING] HTTP Fehler: 429 bei Gruppe 241
+2025-07-23 20:33:28,253 [INFO] Anfrage 242 (Offset 12050)
+2025-07-23 20:33:28,944 [WARNING] HTTP Fehler: 429 bei Gruppe 242
+2025-07-23 20:33:28,960 [INFO] Anfrage 243 (Offset 12100)
+2025-07-23 20:33:29,759 [WARNING] HTTP Fehler: 429 bei Gruppe 243
+2025-07-23 20:33:29,779 [INFO] Anfrage 244 (Offset 12150)
+2025-07-23 20:33:30,437 [WARNING] HTTP Fehler: 429 bei Gruppe 244
+2025-07-23 20:33:30,445 [INFO] Anfrage 245 (Offset 12200)
+2025-07-23 20:33:31,217 [WARNING] HTTP Fehler: 429 bei Gruppe 245
+2025-07-23 20:33:31,227 [INFO] Anfrage 246 (Offset 12250)
+2025-07-23 20:33:32,053 [WARNING] HTTP Fehler: 429 bei Gruppe 246
+2025-07-23 20:33:32,060 [INFO] Anfrage 247 (Offset 12300)
+2025-07-23 20:33:32,767 [WARNING] HTTP Fehler: 429 bei Gruppe 247
+2025-07-23 20:33:32,782 [INFO] Anfrage 248 (Offset 12350)
+2025-07-23 20:33:33,514 [WARNING] HTTP Fehler: 429 bei Gruppe 248
+2025-07-23 20:33:33,519 [INFO] Anfrage 249 (Offset 12400)
+2025-07-23 20:33:34,362 [WARNING] HTTP Fehler: 429 bei Gruppe 249
+2025-07-23 20:33:34,371 [INFO] Anfrage 250 (Offset 12450)
+2025-07-23 20:33:35,140 [WARNING] HTTP Fehler: 429 bei Gruppe 250
+2025-07-23 20:33:35,156 [INFO] Anfrage 251 (Offset 12500)
+2025-07-23 20:33:36,126 [WARNING] HTTP Fehler: 429 bei Gruppe 251
+2025-07-23 20:33:36,149 [INFO] Anfrage 252 (Offset 12550)
+2025-07-23 20:33:36,847 [WARNING] HTTP Fehler: 429 bei Gruppe 252
+2025-07-23 20:33:36,861 [INFO] Anfrage 253 (Offset 12600)
+2025-07-23 20:33:37,683 [WARNING] HTTP Fehler: 429 bei Gruppe 253
+2025-07-23 20:33:37,692 [INFO] Anfrage 254 (Offset 12650)
+2025-07-23 20:33:38,289 [WARNING] HTTP Fehler: 429 bei Gruppe 254
+2025-07-23 20:33:38,297 [INFO] Anfrage 255 (Offset 12700)
+2025-07-23 20:33:38,940 [WARNING] HTTP Fehler: 429 bei Gruppe 255
+2025-07-23 20:33:38,955 [INFO] Anfrage 256 (Offset 12750)
+2025-07-23 20:33:39,613 [WARNING] HTTP Fehler: 429 bei Gruppe 256
+2025-07-23 20:33:39,620 [INFO] Anfrage 257 (Offset 12800)
+2025-07-23 20:33:40,280 [WARNING] HTTP Fehler: 429 bei Gruppe 257
+2025-07-23 20:33:40,288 [INFO] Anfrage 258 (Offset 12850)
+2025-07-23 20:33:40,988 [WARNING] HTTP Fehler: 429 bei Gruppe 258
+2025-07-23 20:33:41,004 [INFO] Anfrage 259 (Offset 12900)
+2025-07-23 20:33:41,629 [WARNING] HTTP Fehler: 429 bei Gruppe 259
+2025-07-23 20:33:41,641 [INFO] Anfrage 260 (Offset 12950)
+2025-07-23 20:33:42,217 [WARNING] HTTP Fehler: 429 bei Gruppe 260
+2025-07-23 20:33:42,232 [INFO] Anfrage 261 (Offset 13000)
+2025-07-23 20:33:42,801 [WARNING] HTTP Fehler: 429 bei Gruppe 261
+2025-07-23 20:33:42,817 [INFO] Anfrage 262 (Offset 13050)
+2025-07-23 20:33:43,472 [WARNING] HTTP Fehler: 429 bei Gruppe 262
+2025-07-23 20:33:43,482 [INFO] Anfrage 263 (Offset 13100)
+2025-07-23 20:33:44,067 [WARNING] HTTP Fehler: 429 bei Gruppe 263
+2025-07-23 20:33:44,083 [INFO] Anfrage 264 (Offset 13150)
+2025-07-23 20:33:44,632 [WARNING] HTTP Fehler: 429 bei Gruppe 264
+2025-07-23 20:33:44,632 [INFO] Anfrage 265 (Offset 13200)
+2025-07-23 20:33:45,212 [WARNING] HTTP Fehler: 429 bei Gruppe 265
+2025-07-23 20:33:45,219 [INFO] Anfrage 266 (Offset 13250)
+2025-07-23 20:33:45,983 [WARNING] HTTP Fehler: 429 bei Gruppe 266
+2025-07-23 20:33:45,999 [INFO] Anfrage 267 (Offset 13300)
+2025-07-23 20:33:46,713 [WARNING] HTTP Fehler: 429 bei Gruppe 267
+2025-07-23 20:33:46,729 [INFO] Anfrage 268 (Offset 13350)
+2025-07-23 20:33:47,295 [WARNING] HTTP Fehler: 429 bei Gruppe 268
+2025-07-23 20:33:47,302 [INFO] Anfrage 269 (Offset 13400)
+2025-07-23 20:33:47,944 [WARNING] HTTP Fehler: 429 bei Gruppe 269
+2025-07-23 20:33:47,944 [INFO] Anfrage 270 (Offset 13450)
+2025-07-23 20:33:48,519 [WARNING] HTTP Fehler: 429 bei Gruppe 270
+2025-07-23 20:33:48,527 [INFO] Anfrage 271 (Offset 13500)
+2025-07-23 20:33:49,101 [WARNING] HTTP Fehler: 429 bei Gruppe 271
+2025-07-23 20:33:49,101 [INFO] Anfrage 272 (Offset 13550)
+2025-07-23 20:33:49,640 [WARNING] HTTP Fehler: 429 bei Gruppe 272
+2025-07-23 20:33:49,654 [INFO] Anfrage 273 (Offset 13600)
+2025-07-23 20:33:50,288 [WARNING] HTTP Fehler: 429 bei Gruppe 273
+2025-07-23 20:33:50,304 [INFO] Alle Koordinaten wurden verarbeitet.
+2025-07-23 20:34:58,672 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:44:00,901 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:44:02,430 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:44:03,677 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:44:05,831 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:44:09,537 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:44:24,600 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:44:32,054 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:45:14,782 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 20:45:28,161 [INFO] Starte Forecast für: historisch
+2025-07-23 20:45:28,168 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 20:45:28,839 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 20:45:34,462 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 20:45:45,038 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 20:46:05,592 [WARNING] HTTP 429 – Versuch 4/5. Warte 40s …
+2025-07-23 20:46:46,443 [WARNING] HTTP 429 – Versuch 5/5. Warte 80s …
+2025-07-23 20:48:06,449 [ERROR] Ausnahme in Gruppe 1: 'NoneType' object has no attribute 'status_code'
+2025-07-23 20:48:06,452 [INFO] Anfrage 2 (Offset 50)
+2025-07-23 20:48:07,232 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 20:48:12,835 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 20:48:23,540 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 20:48:44,162 [WARNING] HTTP 429 – Versuch 4/5. Warte 40s …
+2025-07-23 20:49:24,797 [WARNING] HTTP 429 – Versuch 5/5. Warte 80s …
+2025-07-23 20:50:44,801 [ERROR] Ausnahme in Gruppe 2: 'NoneType' object has no attribute 'status_code'
+2025-07-23 20:50:44,814 [INFO] Anfrage 3 (Offset 100)
+2025-07-23 20:50:45,406 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 20:50:50,947 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 20:51:01,517 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 20:51:22,136 [WARNING] HTTP 429 – Versuch 4/5. Warte 40s …
+2025-07-23 20:52:02,933 [WARNING] HTTP 429 – Versuch 5/5. Warte 80s …
+2025-07-23 20:53:22,936 [ERROR] Ausnahme in Gruppe 3: 'NoneType' object has no attribute 'status_code'
+2025-07-23 20:53:22,942 [INFO] Anfrage 4 (Offset 150)
+2025-07-23 20:53:23,610 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 20:53:29,260 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 20:53:39,867 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 20:54:00,479 [WARNING] HTTP 429 – Versuch 4/5. Warte 40s …
+2025-07-23 20:54:41,071 [WARNING] HTTP 429 – Versuch 5/5. Warte 80s …
+2025-07-23 20:56:01,075 [ERROR] Ausnahme in Gruppe 4: 'NoneType' object has no attribute 'status_code'
+2025-07-23 20:56:01,109 [INFO] Anfrage 5 (Offset 200)
+2025-07-23 20:56:01,722 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 20:56:07,260 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 20:56:17,852 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 20:56:42,824 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 21:51:55,067 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 21:52:09,465 [INFO] Starte Forecast für: historisch
+2025-07-23 21:52:09,465 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 21:52:10,298 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 21:52:16,245 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 21:52:26,811 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 21:53:10,387 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 21:53:11,886 [INFO] Starte Forecast für: historisch
+2025-07-23 21:53:11,902 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 21:53:12,474 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 21:53:18,368 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 21:53:28,969 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 21:53:49,550 [WARNING] HTTP 429 – Versuch 4/5. Warte 40s …
+2025-07-23 21:54:30,181 [WARNING] HTTP 429 – Versuch 5/5. Warte 80s …
+2025-07-23 21:55:50,182 [ERROR] Ausnahme in Gruppe 1: 'NoneType' object has no attribute 'status_code'
+2025-07-23 21:55:50,195 [INFO] Anfrage 2 (Offset 50)
+2025-07-23 21:55:50,770 [WARNING] HTTP 429 – Versuch 1/5. Warte 5s …
+2025-07-23 21:55:56,449 [WARNING] HTTP 429 – Versuch 2/5. Warte 10s …
+2025-07-23 21:56:06,980 [WARNING] HTTP 429 – Versuch 3/5. Warte 20s …
+2025-07-23 21:56:27,597 [WARNING] HTTP 429 – Versuch 4/5. Warte 40s …
+2025-07-23 21:57:08,195 [WARNING] HTTP 429 – Versuch 5/5. Warte 80s …
+2025-07-23 21:57:46,117 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 21:57:58,317 [INFO] Starte Forecast für: historisch
+2025-07-23 21:57:58,317 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 21:57:59,016 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 21:58:59,557 [WARNING] HTTP 429 – Versuch 2/6. Warte 120s …
+2025-07-23 22:01:00,108 [WARNING] HTTP 429 – Versuch 3/6. Warte 240s …
+2025-07-23 22:05:00,684 [WARNING] HTTP 429 – Versuch 4/6. Warte 480s …
+2025-07-23 22:13:01,816 [WARNING] HTTP 429 – Versuch 5/6. Warte 960s …
+2025-07-23 22:29:02,551 [WARNING] HTTP 429 – Versuch 6/6. Warte 1920s …
+2025-07-23 23:01:02,643 [ERROR] Ausnahme in Gruppe 1: 'NoneType' object has no attribute 'status_code'
+2025-07-23 23:01:02,827 [INFO] Anfrage 2 (Offset 50)
+2025-07-23 23:01:03,494 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:02:04,085 [WARNING] HTTP 429 – Versuch 2/6. Warte 120s …
+2025-07-23 23:04:04,633 [WARNING] HTTP 429 – Versuch 3/6. Warte 240s …
+2025-07-23 23:08:05,192 [WARNING] HTTP 429 – Versuch 4/6. Warte 480s …
+2025-07-23 23:16:05,861 [WARNING] HTTP 429 – Versuch 5/6. Warte 960s …
+2025-07-23 23:16:52,812 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 23:17:04,647 [INFO] Starte Forecast für: aktuell
+2025-07-23 23:17:04,648 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 23:17:06,469 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:06,472 [INFO] Gruppe 1 gespeichert.
+2025-07-23 23:17:06,485 [INFO] Anfrage 2 (Offset 50)
+2025-07-23 23:17:08,114 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:08,116 [INFO] Gruppe 2 gespeichert.
+2025-07-23 23:17:08,124 [INFO] Anfrage 3 (Offset 100)
+2025-07-23 23:17:10,006 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:10,010 [INFO] Gruppe 3 gespeichert.
+2025-07-23 23:17:10,020 [INFO] Anfrage 4 (Offset 150)
+2025-07-23 23:17:11,874 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:11,876 [INFO] Gruppe 4 gespeichert.
+2025-07-23 23:17:11,882 [INFO] Anfrage 5 (Offset 200)
+2025-07-23 23:17:13,441 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:13,443 [INFO] Gruppe 5 gespeichert.
+2025-07-23 23:17:13,448 [INFO] Anfrage 6 (Offset 250)
+2025-07-23 23:17:14,911 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:14,913 [INFO] Gruppe 6 gespeichert.
+2025-07-23 23:17:14,918 [INFO] Anfrage 7 (Offset 300)
+2025-07-23 23:17:16,378 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:16,384 [INFO] Gruppe 7 gespeichert.
+2025-07-23 23:17:16,384 [INFO] Anfrage 8 (Offset 350)
+2025-07-23 23:17:18,010 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:18,013 [INFO] Gruppe 8 gespeichert.
+2025-07-23 23:17:18,018 [INFO] Anfrage 9 (Offset 400)
+2025-07-23 23:17:19,613 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:19,613 [INFO] Gruppe 9 gespeichert.
+2025-07-23 23:17:19,613 [INFO] Anfrage 10 (Offset 450)
+2025-07-23 23:17:21,167 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:21,169 [INFO] Gruppe 10 gespeichert.
+2025-07-23 23:17:21,173 [INFO] Anfrage 11 (Offset 500)
+2025-07-23 23:17:22,611 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:22,613 [INFO] Gruppe 11 gespeichert.
+2025-07-23 23:17:22,613 [INFO] Anfrage 12 (Offset 550)
+2025-07-23 23:17:23,944 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:17:23,944 [INFO] Gruppe 12 gespeichert.
+2025-07-23 23:17:23,944 [INFO] Anfrage 13 (Offset 600)
+2025-07-23 23:17:24,523 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:18:26,240 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:26,242 [INFO] Gruppe 13 gespeichert.
+2025-07-23 23:18:26,246 [INFO] Anfrage 14 (Offset 650)
+2025-07-23 23:18:27,648 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:27,652 [INFO] Gruppe 14 gespeichert.
+2025-07-23 23:18:27,656 [INFO] Anfrage 15 (Offset 700)
+2025-07-23 23:18:29,685 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:29,694 [INFO] Gruppe 15 gespeichert.
+2025-07-23 23:18:29,699 [INFO] Anfrage 16 (Offset 750)
+2025-07-23 23:18:31,101 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:31,117 [INFO] Gruppe 16 gespeichert.
+2025-07-23 23:18:31,117 [INFO] Anfrage 17 (Offset 800)
+2025-07-23 23:18:32,702 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:32,702 [INFO] Gruppe 17 gespeichert.
+2025-07-23 23:18:32,711 [INFO] Anfrage 18 (Offset 850)
+2025-07-23 23:18:34,424 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:34,424 [INFO] Gruppe 18 gespeichert.
+2025-07-23 23:18:34,424 [INFO] Anfrage 19 (Offset 900)
+2025-07-23 23:18:35,820 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:35,836 [INFO] Gruppe 19 gespeichert.
+2025-07-23 23:18:35,842 [INFO] Anfrage 20 (Offset 950)
+2025-07-23 23:18:37,449 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:37,453 [INFO] Gruppe 20 gespeichert.
+2025-07-23 23:18:37,453 [INFO] Anfrage 21 (Offset 1000)
+2025-07-23 23:18:38,951 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:38,951 [INFO] Gruppe 21 gespeichert.
+2025-07-23 23:18:38,967 [INFO] Anfrage 22 (Offset 1050)
+2025-07-23 23:18:40,402 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:40,405 [INFO] Gruppe 22 gespeichert.
+2025-07-23 23:18:40,408 [INFO] Anfrage 23 (Offset 1100)
+2025-07-23 23:18:41,838 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:41,838 [INFO] Gruppe 23 gespeichert.
+2025-07-23 23:18:41,854 [INFO] Anfrage 24 (Offset 1150)
+2025-07-23 23:18:44,470 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:18:44,486 [INFO] Gruppe 24 gespeichert.
+2025-07-23 23:18:44,486 [INFO] Anfrage 25 (Offset 1200)
+2025-07-23 23:18:45,464 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:19:47,003 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:47,018 [INFO] Gruppe 25 gespeichert.
+2025-07-23 23:19:47,020 [INFO] Anfrage 26 (Offset 1250)
+2025-07-23 23:19:48,592 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:48,592 [INFO] Gruppe 26 gespeichert.
+2025-07-23 23:19:48,592 [INFO] Anfrage 27 (Offset 1300)
+2025-07-23 23:19:49,986 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:49,989 [INFO] Gruppe 27 gespeichert.
+2025-07-23 23:19:49,992 [INFO] Anfrage 28 (Offset 1350)
+2025-07-23 23:19:51,328 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:51,328 [INFO] Gruppe 28 gespeichert.
+2025-07-23 23:19:51,328 [INFO] Anfrage 29 (Offset 1400)
+2025-07-23 23:19:52,751 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:52,767 [INFO] Gruppe 29 gespeichert.
+2025-07-23 23:19:52,767 [INFO] Anfrage 30 (Offset 1450)
+2025-07-23 23:19:54,256 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:54,256 [INFO] Gruppe 30 gespeichert.
+2025-07-23 23:19:54,272 [INFO] Anfrage 31 (Offset 1500)
+2025-07-23 23:19:55,655 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:55,664 [INFO] Gruppe 31 gespeichert.
+2025-07-23 23:19:55,669 [INFO] Anfrage 32 (Offset 1550)
+2025-07-23 23:19:57,089 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:57,091 [INFO] Gruppe 32 gespeichert.
+2025-07-23 23:19:57,091 [INFO] Anfrage 33 (Offset 1600)
+2025-07-23 23:19:58,625 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:19:58,628 [INFO] Gruppe 33 gespeichert.
+2025-07-23 23:19:58,633 [INFO] Anfrage 34 (Offset 1650)
+2025-07-23 23:20:00,175 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:00,177 [INFO] Gruppe 34 gespeichert.
+2025-07-23 23:20:00,182 [INFO] Anfrage 35 (Offset 1700)
+2025-07-23 23:20:02,803 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:02,806 [INFO] Gruppe 35 gespeichert.
+2025-07-23 23:20:02,810 [INFO] Anfrage 36 (Offset 1750)
+2025-07-23 23:20:04,400 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:04,403 [INFO] Gruppe 36 gespeichert.
+2025-07-23 23:20:04,407 [INFO] Anfrage 37 (Offset 1800)
+2025-07-23 23:20:06,052 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:06,055 [INFO] Gruppe 37 gespeichert.
+2025-07-23 23:20:06,059 [INFO] Anfrage 38 (Offset 1850)
+2025-07-23 23:20:07,604 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:07,607 [INFO] Gruppe 38 gespeichert.
+2025-07-23 23:20:07,611 [INFO] Anfrage 39 (Offset 1900)
+2025-07-23 23:20:09,224 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:09,224 [INFO] Gruppe 39 gespeichert.
+2025-07-23 23:20:09,235 [INFO] Anfrage 40 (Offset 1950)
+2025-07-23 23:20:10,885 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:10,889 [INFO] Gruppe 40 gespeichert.
+2025-07-23 23:20:10,893 [INFO] Anfrage 41 (Offset 2000)
+2025-07-23 23:20:12,632 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:12,632 [INFO] Gruppe 41 gespeichert.
+2025-07-23 23:20:12,632 [INFO] Anfrage 42 (Offset 2050)
+2025-07-23 23:20:13,996 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:13,998 [INFO] Gruppe 42 gespeichert.
+2025-07-23 23:20:13,998 [INFO] Anfrage 43 (Offset 2100)
+2025-07-23 23:20:15,356 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:15,356 [INFO] Gruppe 43 gespeichert.
+2025-07-23 23:20:15,356 [INFO] Anfrage 44 (Offset 2150)
+2025-07-23 23:20:16,793 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:16,793 [INFO] Gruppe 44 gespeichert.
+2025-07-23 23:20:16,793 [INFO] Anfrage 45 (Offset 2200)
+2025-07-23 23:20:18,228 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:18,228 [INFO] Gruppe 45 gespeichert.
+2025-07-23 23:20:18,241 [INFO] Anfrage 46 (Offset 2250)
+2025-07-23 23:20:19,768 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:19,772 [INFO] Gruppe 46 gespeichert.
+2025-07-23 23:20:19,778 [INFO] Anfrage 47 (Offset 2300)
+2025-07-23 23:20:21,233 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:20:21,233 [INFO] Gruppe 47 gespeichert.
+2025-07-23 23:20:21,244 [INFO] Anfrage 48 (Offset 2350)
+2025-07-23 23:20:21,909 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:21:23,323 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:23,339 [INFO] Gruppe 48 gespeichert.
+2025-07-23 23:21:23,342 [INFO] Anfrage 49 (Offset 2400)
+2025-07-23 23:21:24,723 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:24,723 [INFO] Gruppe 49 gespeichert.
+2025-07-23 23:21:24,723 [INFO] Anfrage 50 (Offset 2450)
+2025-07-23 23:21:26,066 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:26,066 [INFO] Gruppe 50 gespeichert.
+2025-07-23 23:21:26,066 [INFO] Anfrage 51 (Offset 2500)
+2025-07-23 23:21:27,557 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:27,557 [INFO] Gruppe 51 gespeichert.
+2025-07-23 23:21:27,557 [INFO] Anfrage 52 (Offset 2550)
+2025-07-23 23:21:28,990 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:28,990 [INFO] Gruppe 52 gespeichert.
+2025-07-23 23:21:28,990 [INFO] Anfrage 53 (Offset 2600)
+2025-07-23 23:21:30,587 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:30,587 [INFO] Gruppe 53 gespeichert.
+2025-07-23 23:21:30,587 [INFO] Anfrage 54 (Offset 2650)
+2025-07-23 23:21:32,149 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:32,149 [INFO] Gruppe 54 gespeichert.
+2025-07-23 23:21:32,149 [INFO] Anfrage 55 (Offset 2700)
+2025-07-23 23:21:33,541 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:33,541 [INFO] Gruppe 55 gespeichert.
+2025-07-23 23:21:33,541 [INFO] Anfrage 56 (Offset 2750)
+2025-07-23 23:21:34,942 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:34,942 [INFO] Gruppe 56 gespeichert.
+2025-07-23 23:21:34,942 [INFO] Anfrage 57 (Offset 2800)
+2025-07-23 23:21:36,343 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:36,343 [INFO] Gruppe 57 gespeichert.
+2025-07-23 23:21:36,343 [INFO] Anfrage 58 (Offset 2850)
+2025-07-23 23:21:37,787 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:37,790 [INFO] Gruppe 58 gespeichert.
+2025-07-23 23:21:37,796 [INFO] Anfrage 59 (Offset 2900)
+2025-07-23 23:21:39,296 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:21:39,299 [INFO] Gruppe 59 gespeichert.
+2025-07-23 23:21:39,302 [INFO] Anfrage 60 (Offset 2950)
+2025-07-23 23:21:39,857 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:22:41,229 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:41,233 [INFO] Gruppe 60 gespeichert.
+2025-07-23 23:22:41,238 [INFO] Anfrage 61 (Offset 3000)
+2025-07-23 23:22:42,564 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:42,564 [INFO] Gruppe 61 gespeichert.
+2025-07-23 23:22:42,580 [INFO] Anfrage 62 (Offset 3050)
+2025-07-23 23:22:43,987 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:44,003 [INFO] Gruppe 62 gespeichert.
+2025-07-23 23:22:44,003 [INFO] Anfrage 63 (Offset 3100)
+2025-07-23 23:22:45,387 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:45,387 [INFO] Gruppe 63 gespeichert.
+2025-07-23 23:22:45,387 [INFO] Anfrage 64 (Offset 3150)
+2025-07-23 23:22:46,854 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:46,854 [INFO] Gruppe 64 gespeichert.
+2025-07-23 23:22:46,854 [INFO] Anfrage 65 (Offset 3200)
+2025-07-23 23:22:48,271 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:48,273 [INFO] Gruppe 65 gespeichert.
+2025-07-23 23:22:48,277 [INFO] Anfrage 66 (Offset 3250)
+2025-07-23 23:22:49,623 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:49,639 [INFO] Gruppe 66 gespeichert.
+2025-07-23 23:22:49,639 [INFO] Anfrage 67 (Offset 3300)
+2025-07-23 23:22:50,962 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:50,966 [INFO] Gruppe 67 gespeichert.
+2025-07-23 23:22:50,966 [INFO] Anfrage 68 (Offset 3350)
+2025-07-23 23:22:52,660 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:52,664 [INFO] Gruppe 68 gespeichert.
+2025-07-23 23:22:52,671 [INFO] Anfrage 69 (Offset 3400)
+2025-07-23 23:22:54,243 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:54,245 [INFO] Gruppe 69 gespeichert.
+2025-07-23 23:22:54,251 [INFO] Anfrage 70 (Offset 3450)
+2025-07-23 23:22:55,645 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:55,645 [INFO] Gruppe 70 gespeichert.
+2025-07-23 23:22:55,661 [INFO] Anfrage 71 (Offset 3500)
+2025-07-23 23:22:57,085 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:22:57,085 [INFO] Gruppe 71 gespeichert.
+2025-07-23 23:22:57,092 [INFO] Anfrage 72 (Offset 3550)
+2025-07-23 23:22:57,680 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:23:59,101 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:23:59,117 [INFO] Gruppe 72 gespeichert.
+2025-07-23 23:23:59,120 [INFO] Anfrage 73 (Offset 3600)
+2025-07-23 23:24:00,524 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:00,527 [INFO] Gruppe 73 gespeichert.
+2025-07-23 23:24:00,533 [INFO] Anfrage 74 (Offset 3650)
+2025-07-23 23:24:02,583 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:02,583 [INFO] Gruppe 74 gespeichert.
+2025-07-23 23:24:02,599 [INFO] Anfrage 75 (Offset 3700)
+2025-07-23 23:24:03,976 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:03,976 [INFO] Gruppe 75 gespeichert.
+2025-07-23 23:24:03,976 [INFO] Anfrage 76 (Offset 3750)
+2025-07-23 23:24:05,373 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:05,373 [INFO] Gruppe 76 gespeichert.
+2025-07-23 23:24:05,389 [INFO] Anfrage 77 (Offset 3800)
+2025-07-23 23:24:06,736 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:06,736 [INFO] Gruppe 77 gespeichert.
+2025-07-23 23:24:06,736 [INFO] Anfrage 78 (Offset 3850)
+2025-07-23 23:24:08,164 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:08,167 [INFO] Gruppe 78 gespeichert.
+2025-07-23 23:24:08,171 [INFO] Anfrage 79 (Offset 3900)
+2025-07-23 23:24:09,526 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:09,531 [INFO] Gruppe 79 gespeichert.
+2025-07-23 23:24:09,537 [INFO] Anfrage 80 (Offset 3950)
+2025-07-23 23:24:10,965 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:10,965 [INFO] Gruppe 80 gespeichert.
+2025-07-23 23:24:10,965 [INFO] Anfrage 81 (Offset 4000)
+2025-07-23 23:24:12,353 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:12,353 [INFO] Gruppe 81 gespeichert.
+2025-07-23 23:24:12,369 [INFO] Anfrage 82 (Offset 4050)
+2025-07-23 23:24:13,756 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:13,756 [INFO] Gruppe 82 gespeichert.
+2025-07-23 23:24:13,756 [INFO] Anfrage 83 (Offset 4100)
+2025-07-23 23:24:15,194 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:15,194 [INFO] Gruppe 83 gespeichert.
+2025-07-23 23:24:15,210 [INFO] Anfrage 84 (Offset 4150)
+2025-07-23 23:24:16,699 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:16,699 [INFO] Gruppe 84 gespeichert.
+2025-07-23 23:24:16,699 [INFO] Anfrage 85 (Offset 4200)
+2025-07-23 23:24:18,088 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:18,088 [INFO] Gruppe 85 gespeichert.
+2025-07-23 23:24:18,088 [INFO] Anfrage 86 (Offset 4250)
+2025-07-23 23:24:19,490 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:24:19,506 [INFO] Gruppe 86 gespeichert.
+2025-07-23 23:24:19,506 [INFO] Anfrage 87 (Offset 4300)
+2025-07-23 23:24:20,070 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:25:21,413 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:25:21,413 [INFO] Gruppe 87 gespeichert.
+2025-07-23 23:25:21,413 [INFO] Anfrage 88 (Offset 4350)
+2025-07-23 23:25:22,760 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:25:22,779 [INFO] Gruppe 88 gespeichert.
+2025-07-23 23:25:22,779 [INFO] Anfrage 89 (Offset 4400)
+2025-07-23 23:25:32,889 [WARNING] Fehler beim Versuch 1: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=None). Warte 60s …
+2025-07-23 23:26:34,263 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:34,266 [INFO] Gruppe 89 gespeichert.
+2025-07-23 23:26:34,272 [INFO] Anfrage 90 (Offset 4450)
+2025-07-23 23:26:35,647 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:35,663 [INFO] Gruppe 90 gespeichert.
+2025-07-23 23:26:35,663 [INFO] Anfrage 91 (Offset 4500)
+2025-07-23 23:26:37,067 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:37,067 [INFO] Gruppe 91 gespeichert.
+2025-07-23 23:26:37,083 [INFO] Anfrage 92 (Offset 4550)
+2025-07-23 23:26:38,396 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:38,399 [INFO] Gruppe 92 gespeichert.
+2025-07-23 23:26:38,404 [INFO] Anfrage 93 (Offset 4600)
+2025-07-23 23:26:39,789 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:39,789 [INFO] Gruppe 93 gespeichert.
+2025-07-23 23:26:39,789 [INFO] Anfrage 94 (Offset 4650)
+2025-07-23 23:26:41,163 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:41,163 [INFO] Gruppe 94 gespeichert.
+2025-07-23 23:26:41,181 [INFO] Anfrage 95 (Offset 4700)
+2025-07-23 23:26:42,532 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:42,532 [INFO] Gruppe 95 gespeichert.
+2025-07-23 23:26:42,543 [INFO] Anfrage 96 (Offset 4750)
+2025-07-23 23:26:43,891 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:43,900 [INFO] Gruppe 96 gespeichert.
+2025-07-23 23:26:43,907 [INFO] Anfrage 97 (Offset 4800)
+2025-07-23 23:26:45,285 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:45,285 [INFO] Gruppe 97 gespeichert.
+2025-07-23 23:26:45,285 [INFO] Anfrage 98 (Offset 4850)
+2025-07-23 23:26:46,736 [INFO] Transformierte Wetterdaten erfolgreich in vorhersage_akt gespeichert.
+2025-07-23 23:26:46,751 [INFO] Gruppe 98 gespeichert.
+2025-07-23 23:26:46,751 [INFO] Anfrage 99 (Offset 4900)
+2025-07-23 23:26:47,286 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:27:47,850 [WARNING] HTTP 429 – Versuch 2/6. Warte 120s …
+2025-07-23 23:29:48,411 [WARNING] HTTP 429 – Versuch 3/6. Warte 240s …
+2025-07-23 23:33:48,978 [WARNING] HTTP 429 – Versuch 4/6. Warte 480s …
+2025-07-23 23:41:49,845 [WARNING] HTTP 429 – Versuch 5/6. Warte 960s …
+2025-07-23 23:55:10,765 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 23:55:22,454 [INFO] Starte Forecast für: historisch
+2025-07-23 23:55:22,470 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 23:55:23,042 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:56:35,806 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-23 23:56:47,806 [INFO] Starte Forecast für: historisch
+2025-07-23 23:56:47,822 [INFO] Anfrage 1 (Offset 0)
+2025-07-23 23:56:48,408 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-23 23:57:49,051 [WARNING] HTTP 429 – Versuch 2/6. Warte 120s …
+2025-07-24 19:56:05,786 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-24 19:58:16,698 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-24 19:59:31,504 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-24 20:00:40,743 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-24 20:09:40,846 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-26 22:38:21,678 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-26 22:38:23,385 [INFO] Starte Forecast für: historisch
+2025-07-26 22:38:23,400 [INFO] Anfrage 1 (Offset 0)
+2025-07-26 22:38:35,236 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:38:35,250 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:38:35,253 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:38:35,332 [INFO] Gruppe 1 gespeichert.
+2025-07-26 22:38:35,332 [INFO] Anfrage 2 (Offset 0)
+2025-07-26 22:38:47,403 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:38:47,403 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:38:47,419 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:38:47,523 [INFO] Gruppe 2 gespeichert.
+2025-07-26 22:38:47,523 [INFO] Anfrage 3 (Offset 0)
+2025-07-26 22:38:48,256 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 22:39:59,532 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:39:59,533 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:39:59,534 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:39:59,612 [INFO] Gruppe 3 gespeichert.
+2025-07-26 22:39:59,612 [INFO] Anfrage 4 (Offset 0)
+2025-07-26 22:40:00,200 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 22:41:12,835 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:41:12,837 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:41:12,840 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:41:12,925 [INFO] Gruppe 4 gespeichert.
+2025-07-26 22:41:12,926 [INFO] Anfrage 5 (Offset 0)
+2025-07-26 22:41:25,336 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:41:25,337 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:41:25,339 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:41:25,425 [INFO] Gruppe 5 gespeichert.
+2025-07-26 22:41:25,425 [INFO] Anfrage 6 (Offset 0)
+2025-07-26 22:41:26,141 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 22:42:37,718 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:42:37,719 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:42:37,721 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:42:37,796 [INFO] Gruppe 6 gespeichert.
+2025-07-26 22:42:37,796 [INFO] Anfrage 7 (Offset 0)
+2025-07-26 22:42:58,176 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:42:58,176 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:42:58,181 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:42:58,258 [INFO] Gruppe 7 gespeichert.
+2025-07-26 22:42:58,258 [INFO] Anfrage 8 (Offset 0)
+2025-07-26 22:45:11,981 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:45:11,984 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:45:11,984 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:45:12,063 [INFO] Gruppe 8 gespeichert.
+2025-07-26 22:45:12,063 [INFO] Anfrage 9 (Offset 0)
+2025-07-26 22:47:28,586 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:47:28,586 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:47:28,586 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:47:28,663 [INFO] Gruppe 9 gespeichert.
+2025-07-26 22:47:28,663 [INFO] Anfrage 10 (Offset 0)
+2025-07-26 22:48:15,069 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Result of json_binary::serialize() was larger than max_allowed_packet (67108864) - truncated
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1301 (HY000): Result of json_binary::serialize() was larger than max_allowed_packet (67108864) - truncated
+2025-07-26 22:48:15,181 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Result of json_binary::serialize() was larger than max_allowed_packet (67108864) - truncated
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1301 (HY000): Result of json_binary::serialize() was larger than max_allowed_packet (67108864) - truncated
+2025-07-26 22:48:15,183 [ERROR] Fehler beim Speichern der Wetterdaten: 1301 (HY000): Result of json_binary::serialize() was larger than max_allowed_packet (67108864) - truncated
+2025-07-26 22:48:15,286 [INFO] Gruppe 10 gespeichert.
+2025-07-26 22:48:15,508 [INFO] Anfrage 12 (Offset 50)
+2025-07-26 22:48:30,794 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:48:30,795 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:48:30,797 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:48:30,871 [INFO] Gruppe 12 gespeichert.
+2025-07-26 22:48:30,871 [INFO] Anfrage 13 (Offset 50)
+2025-07-26 22:48:42,592 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:48:42,592 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:48:42,598 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:48:42,677 [INFO] Gruppe 13 gespeichert.
+2025-07-26 22:48:42,677 [INFO] Anfrage 14 (Offset 50)
+2025-07-26 22:48:43,316 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 22:49:54,759 [ERROR] Fehler bei der Query-Ausführung:
+Query: INSERT INTO wetterdaten_hist (daten) VALUES (%s)
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+2025-07-26 22:49:54,761 [ERROR] Fehler beim Datenbankzugriff
+Traceback (most recent call last):
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lost connection to MySQL server during query
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 38, in execute_query
+    cursor.execute(query, params or ())
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.OperationalError: 2013 (HY000): Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lesly\OneDrive\Bureau\Front\code\CodeBA\root\backend\db_pool.py", line 52, in execute_query
+    conn.close()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 410, in close
+    cnx.reset_session()
+  File "C:\Users\lesly\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1144, in reset_session
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+2025-07-26 22:49:54,762 [ERROR] Fehler beim Speichern der Wetterdaten: MySQL Connection not available.
+2025-07-26 22:49:54,829 [INFO] Gruppe 14 gespeichert.
+2025-07-26 22:49:54,829 [INFO] Anfrage 15 (Offset 50)
+2025-07-26 22:49:55,449 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 22:50:56,275 [WARNING] HTTP 429 – Versuch 2/6. Warte 120s …
+2025-07-26 23:38:59,162 [INFO] MySQL Connection Pool erfolgreich erstellt.
+2025-07-26 23:39:10,624 [INFO] Starte Forecast für: historisch
+2025-07-26 23:39:10,624 [INFO] Anfrage 1 (Offset 0)
+2025-07-26 23:39:13,739 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:13,739 [INFO] Gruppe 1 gespeichert: 2016-01-01 bis 2016-01-30
+2025-07-26 23:39:13,739 [INFO] Anfrage 2 (Offset 0)
+2025-07-26 23:39:15,869 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:15,869 [INFO] Gruppe 2 gespeichert: 2016-01-31 bis 2016-02-29
+2025-07-26 23:39:15,869 [INFO] Anfrage 3 (Offset 0)
+2025-07-26 23:39:18,158 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:18,158 [INFO] Gruppe 3 gespeichert: 2016-03-01 bis 2016-03-30
+2025-07-26 23:39:18,158 [INFO] Anfrage 4 (Offset 0)
+2025-07-26 23:39:20,333 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:20,333 [INFO] Gruppe 4 gespeichert: 2016-03-31 bis 2016-04-29
+2025-07-26 23:39:20,333 [INFO] Anfrage 5 (Offset 0)
+2025-07-26 23:39:22,414 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:22,414 [INFO] Gruppe 5 gespeichert: 2016-04-30 bis 2016-05-29
+2025-07-26 23:39:22,414 [INFO] Anfrage 6 (Offset 0)
+2025-07-26 23:39:24,553 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:24,553 [INFO] Gruppe 6 gespeichert: 2016-05-30 bis 2016-06-28
+2025-07-26 23:39:24,553 [INFO] Anfrage 7 (Offset 0)
+2025-07-26 23:39:27,574 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:27,578 [INFO] Gruppe 7 gespeichert: 2016-06-29 bis 2016-07-28
+2025-07-26 23:39:27,578 [INFO] Anfrage 8 (Offset 0)
+2025-07-26 23:39:31,174 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:31,178 [INFO] Gruppe 8 gespeichert: 2016-07-29 bis 2016-08-27
+2025-07-26 23:39:31,178 [INFO] Anfrage 9 (Offset 0)
+2025-07-26 23:39:34,549 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:34,565 [INFO] Gruppe 9 gespeichert: 2016-08-28 bis 2016-09-26
+2025-07-26 23:39:34,565 [INFO] Anfrage 10 (Offset 0)
+2025-07-26 23:39:38,029 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:38,035 [INFO] Gruppe 10 gespeichert: 2016-09-27 bis 2016-10-26
+2025-07-26 23:39:38,035 [INFO] Anfrage 11 (Offset 0)
+2025-07-26 23:39:41,127 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:41,134 [INFO] Gruppe 11 gespeichert: 2016-10-27 bis 2016-11-25
+2025-07-26 23:39:41,134 [INFO] Anfrage 12 (Offset 0)
+2025-07-26 23:39:44,996 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:45,015 [INFO] Gruppe 12 gespeichert: 2016-11-26 bis 2016-12-25
+2025-07-26 23:39:45,015 [INFO] Anfrage 13 (Offset 0)
+2025-07-26 23:39:48,278 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:48,283 [INFO] Gruppe 13 gespeichert: 2016-12-26 bis 2017-01-24
+2025-07-26 23:39:48,283 [INFO] Anfrage 14 (Offset 0)
+2025-07-26 23:39:51,241 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:51,247 [INFO] Gruppe 14 gespeichert: 2017-01-25 bis 2017-02-23
+2025-07-26 23:39:51,248 [INFO] Anfrage 15 (Offset 0)
+2025-07-26 23:39:54,289 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:39:54,304 [INFO] Gruppe 15 gespeichert: 2017-02-24 bis 2017-03-25
+2025-07-26 23:39:54,304 [INFO] Anfrage 16 (Offset 0)
+2025-07-26 23:39:55,194 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 23:40:58,059 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:40:58,063 [INFO] Gruppe 16 gespeichert: 2017-03-26 bis 2017-04-24
+2025-07-26 23:40:58,063 [INFO] Anfrage 17 (Offset 0)
+2025-07-26 23:41:00,836 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:00,854 [INFO] Gruppe 17 gespeichert: 2017-04-25 bis 2017-05-24
+2025-07-26 23:41:00,854 [INFO] Anfrage 18 (Offset 0)
+2025-07-26 23:41:03,657 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:03,661 [INFO] Gruppe 18 gespeichert: 2017-05-25 bis 2017-06-23
+2025-07-26 23:41:03,663 [INFO] Anfrage 19 (Offset 0)
+2025-07-26 23:41:06,777 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:06,781 [INFO] Gruppe 19 gespeichert: 2017-06-24 bis 2017-07-23
+2025-07-26 23:41:06,781 [INFO] Anfrage 20 (Offset 0)
+2025-07-26 23:41:09,662 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:09,662 [INFO] Gruppe 20 gespeichert: 2017-07-24 bis 2017-08-22
+2025-07-26 23:41:09,662 [INFO] Anfrage 21 (Offset 0)
+2025-07-26 23:41:12,443 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:12,443 [INFO] Gruppe 21 gespeichert: 2017-08-23 bis 2017-09-21
+2025-07-26 23:41:12,443 [INFO] Anfrage 22 (Offset 0)
+2025-07-26 23:41:15,287 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:15,287 [INFO] Gruppe 22 gespeichert: 2017-09-22 bis 2017-10-21
+2025-07-26 23:41:15,287 [INFO] Anfrage 23 (Offset 0)
+2025-07-26 23:41:19,469 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:19,477 [INFO] Gruppe 23 gespeichert: 2017-10-22 bis 2017-11-20
+2025-07-26 23:41:19,477 [INFO] Anfrage 24 (Offset 0)
+2025-07-26 23:41:22,435 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:22,438 [INFO] Gruppe 24 gespeichert: 2017-11-21 bis 2017-12-20
+2025-07-26 23:41:22,438 [INFO] Anfrage 25 (Offset 0)
+2025-07-26 23:41:25,250 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:25,250 [INFO] Gruppe 25 gespeichert: 2017-12-21 bis 2018-01-19
+2025-07-26 23:41:25,250 [INFO] Anfrage 26 (Offset 0)
+2025-07-26 23:41:28,137 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:28,153 [INFO] Gruppe 26 gespeichert: 2018-01-20 bis 2018-02-18
+2025-07-26 23:41:28,153 [INFO] Anfrage 27 (Offset 0)
+2025-07-26 23:41:30,941 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:30,945 [INFO] Gruppe 27 gespeichert: 2018-02-19 bis 2018-03-20
+2025-07-26 23:41:30,945 [INFO] Anfrage 28 (Offset 0)
+2025-07-26 23:41:33,666 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:33,666 [INFO] Gruppe 28 gespeichert: 2018-03-21 bis 2018-04-19
+2025-07-26 23:41:33,666 [INFO] Anfrage 29 (Offset 0)
+2025-07-26 23:41:36,639 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:36,646 [INFO] Gruppe 29 gespeichert: 2018-04-20 bis 2018-05-19
+2025-07-26 23:41:36,646 [INFO] Anfrage 30 (Offset 0)
+2025-07-26 23:41:39,313 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:41:39,313 [INFO] Gruppe 30 gespeichert: 2018-05-20 bis 2018-06-18
+2025-07-26 23:41:39,313 [INFO] Anfrage 31 (Offset 0)
+2025-07-26 23:41:40,113 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 23:42:43,016 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:42:43,016 [INFO] Gruppe 31 gespeichert: 2018-06-19 bis 2018-07-18
+2025-07-26 23:42:43,016 [INFO] Anfrage 32 (Offset 0)
+2025-07-26 23:42:45,785 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:42:45,785 [INFO] Gruppe 32 gespeichert: 2018-07-19 bis 2018-08-17
+2025-07-26 23:42:45,785 [INFO] Anfrage 33 (Offset 0)
+2025-07-26 23:42:48,599 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:42:48,599 [INFO] Gruppe 33 gespeichert: 2018-08-18 bis 2018-09-16
+2025-07-26 23:42:48,599 [INFO] Anfrage 34 (Offset 0)
+2025-07-26 23:42:51,590 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:42:51,590 [INFO] Gruppe 34 gespeichert: 2018-09-17 bis 2018-10-16
+2025-07-26 23:42:51,590 [INFO] Anfrage 35 (Offset 0)
+2025-07-26 23:42:54,325 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:42:54,325 [INFO] Gruppe 35 gespeichert: 2018-10-17 bis 2018-11-15
+2025-07-26 23:42:54,325 [INFO] Anfrage 36 (Offset 0)
+2025-07-26 23:42:57,190 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:42:57,194 [INFO] Gruppe 36 gespeichert: 2018-11-16 bis 2018-12-15
+2025-07-26 23:42:57,194 [INFO] Anfrage 37 (Offset 0)
+2025-07-26 23:43:00,024 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:00,032 [INFO] Gruppe 37 gespeichert: 2018-12-16 bis 2019-01-14
+2025-07-26 23:43:00,032 [INFO] Anfrage 38 (Offset 0)
+2025-07-26 23:43:02,845 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:02,852 [INFO] Gruppe 38 gespeichert: 2019-01-15 bis 2019-02-13
+2025-07-26 23:43:02,852 [INFO] Anfrage 39 (Offset 0)
+2025-07-26 23:43:05,752 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:05,767 [INFO] Gruppe 39 gespeichert: 2019-02-14 bis 2019-03-15
+2025-07-26 23:43:05,767 [INFO] Anfrage 40 (Offset 0)
+2025-07-26 23:43:08,716 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:08,716 [INFO] Gruppe 40 gespeichert: 2019-03-16 bis 2019-04-14
+2025-07-26 23:43:08,716 [INFO] Anfrage 41 (Offset 0)
+2025-07-26 23:43:11,494 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:11,494 [INFO] Gruppe 41 gespeichert: 2019-04-15 bis 2019-05-14
+2025-07-26 23:43:11,494 [INFO] Anfrage 42 (Offset 0)
+2025-07-26 23:43:14,588 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:14,594 [INFO] Gruppe 42 gespeichert: 2019-05-15 bis 2019-06-13
+2025-07-26 23:43:14,594 [INFO] Anfrage 43 (Offset 0)
+2025-07-26 23:43:17,624 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:17,640 [INFO] Gruppe 43 gespeichert: 2019-06-14 bis 2019-07-13
+2025-07-26 23:43:17,640 [INFO] Anfrage 44 (Offset 0)
+2025-07-26 23:43:20,516 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:20,516 [INFO] Gruppe 44 gespeichert: 2019-07-14 bis 2019-08-12
+2025-07-26 23:43:20,516 [INFO] Anfrage 45 (Offset 0)
+2025-07-26 23:43:24,062 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:24,073 [INFO] Gruppe 45 gespeichert: 2019-08-13 bis 2019-09-11
+2025-07-26 23:43:24,073 [INFO] Anfrage 46 (Offset 0)
+2025-07-26 23:43:28,252 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:28,260 [INFO] Gruppe 46 gespeichert: 2019-09-12 bis 2019-10-11
+2025-07-26 23:43:28,260 [INFO] Anfrage 47 (Offset 0)
+2025-07-26 23:43:31,507 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:31,507 [INFO] Gruppe 47 gespeichert: 2019-10-12 bis 2019-11-10
+2025-07-26 23:43:31,507 [INFO] Anfrage 48 (Offset 0)
+2025-07-26 23:43:34,694 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:34,694 [INFO] Gruppe 48 gespeichert: 2019-11-11 bis 2019-12-10
+2025-07-26 23:43:34,694 [INFO] Anfrage 49 (Offset 0)
+2025-07-26 23:43:38,590 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:38,596 [INFO] Gruppe 49 gespeichert: 2019-12-11 bis 2020-01-09
+2025-07-26 23:43:38,596 [INFO] Anfrage 50 (Offset 0)
+2025-07-26 23:43:41,907 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:41,911 [INFO] Gruppe 50 gespeichert: 2020-01-10 bis 2020-02-08
+2025-07-26 23:43:41,911 [INFO] Anfrage 51 (Offset 0)
+2025-07-26 23:43:44,918 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:44,918 [INFO] Gruppe 51 gespeichert: 2020-02-09 bis 2020-03-09
+2025-07-26 23:43:44,918 [INFO] Anfrage 52 (Offset 0)
+2025-07-26 23:43:47,815 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:47,824 [INFO] Gruppe 52 gespeichert: 2020-03-10 bis 2020-04-08
+2025-07-26 23:43:47,824 [INFO] Anfrage 53 (Offset 0)
+2025-07-26 23:43:50,945 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:50,945 [INFO] Gruppe 53 gespeichert: 2020-04-09 bis 2020-05-08
+2025-07-26 23:43:50,945 [INFO] Anfrage 54 (Offset 0)
+2025-07-26 23:43:54,357 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:43:54,357 [INFO] Gruppe 54 gespeichert: 2020-05-09 bis 2020-06-07
+2025-07-26 23:43:54,357 [INFO] Anfrage 55 (Offset 0)
+2025-07-26 23:43:55,439 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 23:44:58,967 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:44:58,972 [INFO] Gruppe 55 gespeichert: 2020-06-08 bis 2020-07-07
+2025-07-26 23:44:58,974 [INFO] Anfrage 56 (Offset 0)
+2025-07-26 23:45:02,398 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:02,398 [INFO] Gruppe 56 gespeichert: 2020-07-08 bis 2020-08-06
+2025-07-26 23:45:02,398 [INFO] Anfrage 57 (Offset 0)
+2025-07-26 23:45:05,628 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:05,628 [INFO] Gruppe 57 gespeichert: 2020-08-07 bis 2020-09-05
+2025-07-26 23:45:05,628 [INFO] Anfrage 58 (Offset 0)
+2025-07-26 23:45:09,103 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:09,119 [INFO] Gruppe 58 gespeichert: 2020-09-06 bis 2020-10-05
+2025-07-26 23:45:09,119 [INFO] Anfrage 59 (Offset 0)
+2025-07-26 23:45:12,530 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:12,530 [INFO] Gruppe 59 gespeichert: 2020-10-06 bis 2020-11-04
+2025-07-26 23:45:12,530 [INFO] Anfrage 60 (Offset 0)
+2025-07-26 23:45:15,883 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:15,899 [INFO] Gruppe 60 gespeichert: 2020-11-05 bis 2020-12-04
+2025-07-26 23:45:15,899 [INFO] Anfrage 61 (Offset 0)
+2025-07-26 23:45:19,263 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:19,274 [INFO] Gruppe 61 gespeichert: 2020-12-05 bis 2021-01-03
+2025-07-26 23:45:19,274 [INFO] Anfrage 62 (Offset 0)
+2025-07-26 23:45:22,693 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:22,693 [INFO] Gruppe 62 gespeichert: 2021-01-04 bis 2021-02-02
+2025-07-26 23:45:22,693 [INFO] Anfrage 63 (Offset 0)
+2025-07-26 23:45:26,045 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:26,045 [INFO] Gruppe 63 gespeichert: 2021-02-03 bis 2021-03-04
+2025-07-26 23:45:26,045 [INFO] Anfrage 64 (Offset 0)
+2025-07-26 23:45:29,347 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:29,347 [INFO] Gruppe 64 gespeichert: 2021-03-05 bis 2021-04-03
+2025-07-26 23:45:29,347 [INFO] Anfrage 65 (Offset 0)
+2025-07-26 23:45:32,758 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:32,760 [INFO] Gruppe 65 gespeichert: 2021-04-04 bis 2021-05-03
+2025-07-26 23:45:32,760 [INFO] Anfrage 66 (Offset 0)
+2025-07-26 23:45:36,060 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:36,060 [INFO] Gruppe 66 gespeichert: 2021-05-04 bis 2021-06-02
+2025-07-26 23:45:36,060 [INFO] Anfrage 67 (Offset 0)
+2025-07-26 23:45:39,365 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:39,365 [INFO] Gruppe 67 gespeichert: 2021-06-03 bis 2021-07-02
+2025-07-26 23:45:39,365 [INFO] Anfrage 68 (Offset 0)
+2025-07-26 23:45:42,589 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:42,589 [INFO] Gruppe 68 gespeichert: 2021-07-03 bis 2021-08-01
+2025-07-26 23:45:42,589 [INFO] Anfrage 69 (Offset 0)
+2025-07-26 23:45:45,658 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:45,674 [INFO] Gruppe 69 gespeichert: 2021-08-02 bis 2021-08-31
+2025-07-26 23:45:45,674 [INFO] Anfrage 70 (Offset 0)
+2025-07-26 23:45:48,786 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:48,786 [INFO] Gruppe 70 gespeichert: 2021-09-01 bis 2021-09-30
+2025-07-26 23:45:48,786 [INFO] Anfrage 71 (Offset 0)
+2025-07-26 23:45:52,116 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:52,132 [INFO] Gruppe 71 gespeichert: 2021-10-01 bis 2021-10-30
+2025-07-26 23:45:52,132 [INFO] Anfrage 72 (Offset 0)
+2025-07-26 23:45:55,393 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:55,408 [INFO] Gruppe 72 gespeichert: 2021-10-31 bis 2021-11-29
+2025-07-26 23:45:55,408 [INFO] Anfrage 73 (Offset 0)
+2025-07-26 23:45:59,234 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:45:59,242 [INFO] Gruppe 73 gespeichert: 2021-11-30 bis 2021-12-29
+2025-07-26 23:45:59,242 [INFO] Anfrage 74 (Offset 0)
+2025-07-26 23:46:03,382 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:03,393 [INFO] Gruppe 74 gespeichert: 2021-12-30 bis 2022-01-28
+2025-07-26 23:46:03,395 [INFO] Anfrage 75 (Offset 0)
+2025-07-26 23:46:07,537 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:07,543 [INFO] Gruppe 75 gespeichert: 2022-01-29 bis 2022-02-27
+2025-07-26 23:46:07,543 [INFO] Anfrage 76 (Offset 0)
+2025-07-26 23:46:11,731 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:11,741 [INFO] Gruppe 76 gespeichert: 2022-02-28 bis 2022-03-29
+2025-07-26 23:46:11,741 [INFO] Anfrage 77 (Offset 0)
+2025-07-26 23:46:15,086 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:15,096 [INFO] Gruppe 77 gespeichert: 2022-03-30 bis 2022-04-28
+2025-07-26 23:46:15,096 [INFO] Anfrage 78 (Offset 0)
+2025-07-26 23:46:18,379 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:18,386 [INFO] Gruppe 78 gespeichert: 2022-04-29 bis 2022-05-28
+2025-07-26 23:46:18,386 [INFO] Anfrage 79 (Offset 0)
+2025-07-26 23:46:21,775 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:21,775 [INFO] Gruppe 79 gespeichert: 2022-05-29 bis 2022-06-27
+2025-07-26 23:46:21,775 [INFO] Anfrage 80 (Offset 0)
+2025-07-26 23:46:25,179 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:25,188 [INFO] Gruppe 80 gespeichert: 2022-06-28 bis 2022-07-27
+2025-07-26 23:46:25,188 [INFO] Anfrage 81 (Offset 0)
+2025-07-26 23:46:28,582 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:28,590 [INFO] Gruppe 81 gespeichert: 2022-07-28 bis 2022-08-26
+2025-07-26 23:46:28,590 [INFO] Anfrage 82 (Offset 0)
+2025-07-26 23:46:31,926 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:31,943 [INFO] Gruppe 82 gespeichert: 2022-08-27 bis 2022-09-25
+2025-07-26 23:46:31,943 [INFO] Anfrage 83 (Offset 0)
+2025-07-26 23:46:35,547 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:35,556 [INFO] Gruppe 83 gespeichert: 2022-09-26 bis 2022-10-25
+2025-07-26 23:46:35,556 [INFO] Anfrage 84 (Offset 0)
+2025-07-26 23:46:40,982 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:40,989 [INFO] Gruppe 84 gespeichert: 2022-10-26 bis 2022-11-24
+2025-07-26 23:46:40,989 [INFO] Anfrage 85 (Offset 0)
+2025-07-26 23:46:48,145 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:48,155 [INFO] Gruppe 85 gespeichert: 2022-11-25 bis 2022-12-24
+2025-07-26 23:46:48,157 [INFO] Anfrage 86 (Offset 0)
+2025-07-26 23:46:58,207 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:46:58,223 [INFO] Gruppe 86 gespeichert: 2022-12-25 bis 2023-01-23
+2025-07-26 23:46:58,223 [INFO] Anfrage 87 (Offset 0)
+2025-07-26 23:47:06,574 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:47:06,583 [INFO] Gruppe 87 gespeichert: 2023-01-24 bis 2023-02-22
+2025-07-26 23:47:06,583 [INFO] Anfrage 88 (Offset 0)
+2025-07-26 23:47:16,403 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:47:16,419 [INFO] Gruppe 88 gespeichert: 2023-02-23 bis 2023-03-24
+2025-07-26 23:47:16,419 [INFO] Anfrage 89 (Offset 0)
+2025-07-26 23:47:27,729 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:47:27,737 [INFO] Gruppe 89 gespeichert: 2023-03-25 bis 2023-04-23
+2025-07-26 23:47:27,737 [INFO] Anfrage 90 (Offset 0)
+2025-07-26 23:47:38,523 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:47:38,540 [INFO] Gruppe 90 gespeichert: 2023-04-24 bis 2023-05-23
+2025-07-26 23:47:38,540 [INFO] Anfrage 91 (Offset 0)
+2025-07-26 23:47:48,731 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:47:48,737 [INFO] Gruppe 91 gespeichert: 2023-05-24 bis 2023-06-22
+2025-07-26 23:47:48,737 [INFO] Anfrage 92 (Offset 0)
+2025-07-26 23:47:57,608 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:47:57,624 [INFO] Gruppe 92 gespeichert: 2023-06-23 bis 2023-07-22
+2025-07-26 23:47:57,624 [INFO] Anfrage 93 (Offset 0)
+2025-07-26 23:48:05,301 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:48:05,301 [INFO] Gruppe 93 gespeichert: 2023-07-23 bis 2023-08-21
+2025-07-26 23:48:05,301 [INFO] Anfrage 94 (Offset 0)
+2025-07-26 23:48:16,032 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:48:16,039 [INFO] Gruppe 94 gespeichert: 2023-08-22 bis 2023-09-20
+2025-07-26 23:48:16,039 [INFO] Anfrage 95 (Offset 0)
+2025-07-26 23:48:22,243 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:48:22,243 [INFO] Gruppe 95 gespeichert: 2023-09-21 bis 2023-10-20
+2025-07-26 23:48:22,243 [INFO] Anfrage 96 (Offset 0)
+2025-07-26 23:48:30,148 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:48:30,164 [INFO] Gruppe 96 gespeichert: 2023-10-21 bis 2023-11-19
+2025-07-26 23:48:30,164 [INFO] Anfrage 97 (Offset 0)
+2025-07-26 23:48:38,258 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:48:38,258 [INFO] Gruppe 97 gespeichert: 2023-11-20 bis 2023-12-19
+2025-07-26 23:48:38,258 [INFO] Anfrage 98 (Offset 0)
+2025-07-26 23:48:49,216 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:48:49,222 [INFO] Gruppe 98 gespeichert: 2023-12-20 bis 2024-01-18
+2025-07-26 23:48:49,222 [INFO] Anfrage 99 (Offset 0)
+2025-07-26 23:48:57,182 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:48:57,185 [INFO] Gruppe 99 gespeichert: 2024-01-19 bis 2024-02-17
+2025-07-26 23:48:57,185 [INFO] Anfrage 100 (Offset 0)
+2025-07-26 23:49:06,321 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:49:06,321 [INFO] Gruppe 100 gespeichert: 2024-02-18 bis 2024-03-18
+2025-07-26 23:49:06,321 [INFO] Anfrage 101 (Offset 0)
+2025-07-26 23:49:21,204 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:49:21,210 [INFO] Gruppe 101 gespeichert: 2024-03-19 bis 2024-04-17
+2025-07-26 23:49:21,210 [INFO] Anfrage 102 (Offset 0)
+2025-07-26 23:49:34,592 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:49:34,592 [INFO] Gruppe 102 gespeichert: 2024-04-18 bis 2024-05-17
+2025-07-26 23:49:34,592 [INFO] Anfrage 103 (Offset 0)
+2025-07-26 23:49:47,820 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:49:47,822 [INFO] Gruppe 103 gespeichert: 2024-05-18 bis 2024-06-16
+2025-07-26 23:49:47,822 [INFO] Anfrage 104 (Offset 0)
+2025-07-26 23:49:59,204 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:49:59,219 [INFO] Gruppe 104 gespeichert: 2024-06-17 bis 2024-07-16
+2025-07-26 23:49:59,219 [INFO] Anfrage 105 (Offset 0)
+2025-07-26 23:50:11,915 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:50:11,931 [INFO] Gruppe 105 gespeichert: 2024-07-17 bis 2024-08-15
+2025-07-26 23:50:11,931 [INFO] Anfrage 106 (Offset 0)
+2025-07-26 23:50:21,999 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:50:22,009 [INFO] Gruppe 106 gespeichert: 2024-08-16 bis 2024-09-14
+2025-07-26 23:50:22,009 [INFO] Anfrage 107 (Offset 0)
+2025-07-26 23:50:30,676 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:50:30,684 [INFO] Gruppe 107 gespeichert: 2024-09-15 bis 2024-10-14
+2025-07-26 23:50:30,684 [INFO] Anfrage 108 (Offset 0)
+2025-07-26 23:50:38,133 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:50:38,136 [INFO] Gruppe 108 gespeichert: 2024-10-15 bis 2024-11-13
+2025-07-26 23:50:38,136 [INFO] Anfrage 109 (Offset 0)
+2025-07-26 23:50:44,737 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:50:44,737 [INFO] Gruppe 109 gespeichert: 2024-11-14 bis 2024-12-13
+2025-07-26 23:50:44,737 [INFO] Anfrage 110 (Offset 0)
+2025-07-26 23:50:50,844 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:50:50,860 [INFO] Gruppe 110 gespeichert: 2024-12-14 bis 2025-01-12
+2025-07-26 23:50:50,860 [INFO] Anfrage 111 (Offset 0)
+2025-07-26 23:50:56,888 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:50:56,904 [INFO] Gruppe 111 gespeichert: 2025-01-13 bis 2025-02-11
+2025-07-26 23:50:56,904 [INFO] Anfrage 112 (Offset 0)
+2025-07-26 23:51:03,372 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:03,388 [INFO] Gruppe 112 gespeichert: 2025-02-12 bis 2025-03-13
+2025-07-26 23:51:03,388 [INFO] Anfrage 113 (Offset 0)
+2025-07-26 23:51:13,022 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:13,022 [INFO] Gruppe 113 gespeichert: 2025-03-14 bis 2025-04-12
+2025-07-26 23:51:13,022 [INFO] Anfrage 114 (Offset 0)
+2025-07-26 23:51:21,355 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:21,371 [INFO] Gruppe 114 gespeichert: 2025-04-13 bis 2025-05-12
+2025-07-26 23:51:21,371 [INFO] Anfrage 115 (Offset 0)
+2025-07-26 23:51:28,696 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:28,696 [INFO] Gruppe 115 gespeichert: 2025-05-13 bis 2025-06-11
+2025-07-26 23:51:28,696 [INFO] Anfrage 116 (Offset 0)
+2025-07-26 23:51:36,369 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:36,385 [INFO] Gruppe 116 gespeichert: 2025-06-12 bis 2025-07-11
+2025-07-26 23:51:36,385 [INFO] Anfrage 117 (Offset 0)
+2025-07-26 23:51:39,921 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:39,921 [INFO] Gruppe 117 gespeichert: 2025-07-12 bis 2025-07-24
+2025-07-26 23:51:39,953 [INFO] Anfrage 119 (Offset 50)
+2025-07-26 23:51:42,113 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:42,113 [INFO] Gruppe 119 gespeichert: 2016-01-01 bis 2016-01-30
+2025-07-26 23:51:42,113 [INFO] Anfrage 120 (Offset 50)
+2025-07-26 23:51:44,303 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:44,303 [INFO] Gruppe 120 gespeichert: 2016-01-31 bis 2016-02-29
+2025-07-26 23:51:44,303 [INFO] Anfrage 121 (Offset 50)
+2025-07-26 23:51:46,205 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:46,205 [INFO] Gruppe 121 gespeichert: 2016-03-01 bis 2016-03-30
+2025-07-26 23:51:46,221 [INFO] Anfrage 122 (Offset 50)
+2025-07-26 23:51:48,011 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:48,011 [INFO] Gruppe 122 gespeichert: 2016-03-31 bis 2016-04-29
+2025-07-26 23:51:48,011 [INFO] Anfrage 123 (Offset 50)
+2025-07-26 23:51:50,054 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:50,054 [INFO] Gruppe 123 gespeichert: 2016-04-30 bis 2016-05-29
+2025-07-26 23:51:50,054 [INFO] Anfrage 124 (Offset 50)
+2025-07-26 23:51:52,112 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:52,128 [INFO] Gruppe 124 gespeichert: 2016-05-30 bis 2016-06-28
+2025-07-26 23:51:52,128 [INFO] Anfrage 125 (Offset 50)
+2025-07-26 23:51:54,259 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:54,275 [INFO] Gruppe 125 gespeichert: 2016-06-29 bis 2016-07-28
+2025-07-26 23:51:54,275 [INFO] Anfrage 126 (Offset 50)
+2025-07-26 23:51:56,403 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:56,403 [INFO] Gruppe 126 gespeichert: 2016-07-29 bis 2016-08-27
+2025-07-26 23:51:56,403 [INFO] Anfrage 127 (Offset 50)
+2025-07-26 23:51:58,388 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:51:58,388 [INFO] Gruppe 127 gespeichert: 2016-08-28 bis 2016-09-26
+2025-07-26 23:51:58,388 [INFO] Anfrage 128 (Offset 50)
+2025-07-26 23:52:00,437 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:52:00,437 [INFO] Gruppe 128 gespeichert: 2016-09-27 bis 2016-10-26
+2025-07-26 23:52:00,437 [INFO] Anfrage 129 (Offset 50)
+2025-07-26 23:52:02,494 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:52:02,494 [INFO] Gruppe 129 gespeichert: 2016-10-27 bis 2016-11-25
+2025-07-26 23:52:02,494 [INFO] Anfrage 130 (Offset 50)
+2025-07-26 23:52:03,074 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 23:53:05,999 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:53:06,006 [INFO] Gruppe 130 gespeichert: 2016-11-26 bis 2016-12-25
+2025-07-26 23:53:06,006 [INFO] Anfrage 131 (Offset 50)
+2025-07-26 23:53:08,813 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:53:08,829 [INFO] Gruppe 131 gespeichert: 2016-12-26 bis 2017-01-24
+2025-07-26 23:53:08,829 [INFO] Anfrage 132 (Offset 50)
+2025-07-26 23:53:11,640 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:53:11,646 [INFO] Gruppe 132 gespeichert: 2017-01-25 bis 2017-02-23
+2025-07-26 23:53:11,648 [INFO] Anfrage 133 (Offset 50)
+2025-07-26 23:53:14,347 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:53:14,364 [INFO] Gruppe 133 gespeichert: 2017-02-24 bis 2017-03-25
+2025-07-26 23:53:14,364 [INFO] Anfrage 134 (Offset 50)
+2025-07-26 23:53:17,013 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:53:17,013 [INFO] Gruppe 134 gespeichert: 2017-03-26 bis 2017-04-24
+2025-07-26 23:53:17,013 [INFO] Anfrage 135 (Offset 50)
+2025-07-26 23:53:20,089 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:53:20,097 [INFO] Gruppe 135 gespeichert: 2017-04-25 bis 2017-05-24
+2025-07-26 23:53:20,097 [INFO] Anfrage 136 (Offset 50)
+2025-07-26 23:53:22,207 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:53:22,223 [INFO] Gruppe 136 gespeichert: 2017-05-25 bis 2017-06-23
+2025-07-26 23:53:22,223 [INFO] Anfrage 137 (Offset 50)
+2025-07-26 23:53:22,985 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 23:54:23,766 [WARNING] HTTP 429 – Versuch 2/6. Warte 120s …
+2025-07-26 23:56:25,823 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:56:25,839 [INFO] Gruppe 137 gespeichert: 2017-06-24 bis 2017-07-23
+2025-07-26 23:56:25,839 [INFO] Anfrage 138 (Offset 50)
+2025-07-26 23:56:27,685 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:56:27,685 [INFO] Gruppe 138 gespeichert: 2017-07-24 bis 2017-08-22
+2025-07-26 23:56:27,685 [INFO] Anfrage 139 (Offset 50)
+2025-07-26 23:56:29,705 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:56:29,705 [INFO] Gruppe 139 gespeichert: 2017-08-23 bis 2017-09-21
+2025-07-26 23:56:29,705 [INFO] Anfrage 140 (Offset 50)
+2025-07-26 23:56:31,996 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:56:32,011 [INFO] Gruppe 140 gespeichert: 2017-09-22 bis 2017-10-21
+2025-07-26 23:56:32,011 [INFO] Anfrage 141 (Offset 50)
+2025-07-26 23:56:32,566 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 23:57:34,585 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:57:34,585 [INFO] Gruppe 141 gespeichert: 2017-10-22 bis 2017-11-20
+2025-07-26 23:57:34,585 [INFO] Anfrage 142 (Offset 50)
+2025-07-26 23:57:36,655 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:57:36,670 [INFO] Gruppe 142 gespeichert: 2017-11-21 bis 2017-12-20
+2025-07-26 23:57:36,670 [INFO] Anfrage 143 (Offset 50)
+2025-07-26 23:57:38,632 [INFO] Transformierte Wetterdaten erfolgreich in wetterdaten_hist gespeichert.
+2025-07-26 23:57:38,632 [INFO] Gruppe 143 gespeichert: 2017-12-21 bis 2018-01-19
+2025-07-26 23:57:38,632 [INFO] Anfrage 144 (Offset 50)
+2025-07-26 23:57:39,143 [WARNING] HTTP 429 – Versuch 1/6. Warte 60s …
+2025-07-26 23:58:40,422 [WARNING] HTTP 429 – Versuch 2/6. Warte 120s …
+2025-07-27 00:36:42,921 [INFO] MySQL Connection Pool erfolgreich erstellt.

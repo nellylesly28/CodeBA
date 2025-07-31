@@ -25,8 +25,8 @@ def log_warning(message):
 
 # 🔁 Smarte Retry-Logik mit Exponential Backoff
 def smart_retry(
-    max_retries=5,
-    base_delay=5,
+    max_retries=6,
+    base_delay=60,
     backoff_factor=2,
     allowed_status_codes=(429, 504),
     exceptions=(requests.exceptions.RequestException,),

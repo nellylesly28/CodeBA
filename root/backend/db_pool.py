@@ -25,7 +25,7 @@ except Error as e:
     raise
 
 
-    def execute_query(query, params=None, fetch=False):
+def execute_query(query, params=None, fetch=False):
         try:
             conn = connection_pool.get_connection()
             cursor = conn.cursor(dictionary=True)  # So bekommst du Spaltennamen als Keys im Ergebnis

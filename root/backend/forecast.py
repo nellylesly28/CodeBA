@@ -4,6 +4,11 @@ from datetime import datetime, timedelta
 from db_pool import execute_query
 from error_handler import log_info, log_error, log_warning, smart_retry
 
+#🔁 Retry-fähiger API-Aufruf
+@smart_retry(max_retries=6, base_delay=60)
+def get_with_retry(url):
+    return requests.get(url)
+
 
 # Koordinaten synchron aus DB holen
 def get_coordinates(table_name, offset, limit):
@@ -17,14 +22,16 @@ def get_coordinates(table_name, offset, limit):
 
 
 # Forecast-URL aufbauen
-def build_url(coords, case):
+def build_url(coords, case, start_date=None, end_date=None):
     hourly_params = "temperature_2m,rain,cloud_cover,precipitation,apparent_temperature,dew_point_2m,pressure_msl,windspeed_10m,sunshine_duration"
 
     if case == "historisch":
         base_url = "https://historical-forecast-api.open-meteo.com/v1/forecast"
 
-        start_date = datetime(year=2016, month=1, day=1).date()
-        end_date = datetime.utcnow().date() - timedelta(days=2)  # Heute minus 2 Tage
+        if not start_date or not end_date:
+            raise ValueError("Start- und Enddatum sind für historisch erforderlich")
+        #start_date = datetime(year=2025, month=2, day=1).date()
+        #end_date = datetime.utcnow().date() - timedelta(days=2)  # Heute minus 2 Tage
         date_params = f"&start_date={start_date}&end_date={end_date}"
 
         # end_date = datetime.utcnow().date()
@@ -122,23 +129,27 @@ def store_response(table_name, json_data):
         # print("Erfolgreich gespeichert.")
         transformed = normalize_and_verticalize(json_data)
         execute_query(insert_query, (json.dumps(transformed),))
-        print(f"Transformierte Wetterdaten erfolgreich in {table_name} gespeichert.")
+        log_info(f"Transformierte Wetterdaten erfolgreich in {table_name} gespeichert.")
+        return True
     except Exception as e:
-        print(f"Fehler beim Speichern der Wetterdaten: {e}")
-
+        log_error(f"Fehler beim Speichern der Wetterdaten: {e}")
+        return False
 
 # Hauptfunktion
 def run_forecast(case):
-    print(f"Starte Forecast für: {case}")
+    log_info(f"Starte Forecast für: {case}")
 
     if case == "historisch":
         station_table = "wetterstation_hist"
         storage_table = "wetterdaten_hist"
+        start = datetime(2016, 1, 1).date()
+        end = datetime.utcnow().date() - timedelta(days=2)
+        interval_days = 30 # 30 Tage pro Abschnitt
     elif case == "aktuell":
         station_table = "wetterstation_akt"
         storage_table = "vorhersage_akt"
     else:
-        print("Ungültiger Fall. Nur 'historisch' oder 'aktuell' erlaubt.")
+        log_error("Ungültiger Fall. Nur 'historisch' oder 'aktuell' erlaubt.")
         return
 
     offset = 0
@@ -148,22 +159,51 @@ def run_forecast(case):
     while True:
         coords = get_coordinates(station_table, offset, limit)
         if not coords:
-            print("Alle Koordinaten wurden verarbeitet.")
+            log_info("Alle Koordinaten wurden verarbeitet.")
             break
 
-        url = build_url(coords, case)
-        print(f"Anfrage {index} (Offset {offset})")
+        if case == "historisch" :
+            current_start = start
+            while current_start <= end:
+                current_end = min(current_start + timedelta(days=interval_days - 1), end)
+                url = build_url(coords, case, current_start, current_end)     
+                #url = build_url(coords, case)
+                log_info(f"Anfrage {index} (Offset {offset})")
+                
+                try:
+                    response = get_with_retry(url)  # von error_handler wegen fehler 429 too many request
+            #response = requests.get(url)
+                    if response.status_code == 200:
+                        json_data = response.json()
+                        success = store_response(storage_table, json_data)
+                        if success: 
+                            log_info(f"Gruppe {index} gespeichert: {current_start} bis {current_end}")
+                        else:
+                             log_warning(f"Gruppe {index} konnte nicht gespeichert werden.") 
+                    else:
+                        log_warning(f"HTTP Fehler: {response.status_code} bei Gruppe {index}")
+                except Exception as e:
+                    log_error(f"Ausnahme in Gruppe {index}: {e}")
 
-        try:
-            response = requests.get(url)
-            if response.status_code == 200:
-                json_data = response.json()
-                store_response(storage_table, json_data)
-                print(f"Gruppe {index} gespeichert.")
-            else:
-                print(f"HTTP Fehler: {response.status_code}")
-        except Exception as e:
-            print(f"Ausnahme in Gruppe {index}: {e}")
+                current_start = current_end + timedelta(days=1)
+                index += 1
+
+        else: 
+            url = build_url(coords, case)
+            log_info(f"Anfrage {index} (Offset {offset})")
+
+            try: 
+
+                response = get_with_retry(url)
+                if response.status_code == 200:
+                    json_data = response.json()
+                    store_response(storage_table, json_data)
+                    log_info(f"Gruppe {index} gespeichert.")
+                else:
+                    log_warning(f"HTTP Fehler: {response.status_code} bei Gruppe {index}")
+            except Exception as e:
+                log_error(f"Ausnahme in Gruppe {index}: {e}")
+
 
         offset += limit
         index += 1
