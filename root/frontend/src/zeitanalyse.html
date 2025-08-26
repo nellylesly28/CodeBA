@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zeitanalyse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f8ff; height: 100vh; display: flex; flex-direction: column; }
+    .topbar { position: relative; z-index: 2; background: white; padding: 12px; border-bottom: 1px solid #e5e7eb; }
+    .controls-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .controls-row:last-child { margin-bottom: 0; }
+    .controls-row label { font-weight: 600; margin-right: 4px; white-space: nowrap; }
+    .controls-row select, .controls-row input { padding: 6px 8px; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 13px; }
+    .controls-row input[type="datetime-local"] { min-width: 180px; }
+    .controls-row button { padding: 6px 10px; border: none; border-radius: 8px; background: #2563eb; color: white; cursor: pointer; font-size: 13px; }
+    .controls-row button:hover { background: #1d4ed8; }
+    .controls-row button.secondary { background: #6b7280; }
+    .controls-row button.secondary:hover { background: #4b5563; }
+
+    .layout { flex: 1; display: flex; min-height: 0; }
+    #map { flex: 1; min-width: 0; }
+    .sidebar { width: 360px; background: white; border-left: 1px solid #e5e7eb; padding: 12px; overflow: auto; }
+    .legend { margin: 8px 0 12px; font-size: 13px; color: #374151; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 6px 4px; border-bottom: 1px solid #e5e7eb; }
+    th { text-align: left; color: #374151; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="controls-row">
+      <label for="metricSel">Kennzahl:</label>
+      <select id="metricSel">
+        <option value="temperatur">Temperatur</option>
+        <option value="luftdruck">Luftdruck</option>
+      </select>
+      
+      <label for="startDate">Von:</label>
+      <input type="datetime-local" id="startDate">
+      
+      <label for="endDate">Bis:</label>
+      <input type="datetime-local" id="endDate">
+    </div>
+    
+    <div class="controls-row">
+      <button id="applyBtn">Zeitanalyse starten</button>
+      <button id="resetBtn" class="secondary" onclick="resetDateTime()">Zurücksetzen</button>
+      <button id="homeBtn" onclick="location.href='/'">Start</button>
+    </div>
+  </div>
+  
+  <div class="layout">
+    <div id="map"></div>
+    <div class="sidebar">
+      <div class="legend">Farben: Blau = kalt, Rot = warm</div>
+      
+      <div>
+        <h4 style="margin:0 0 6px 0; color: #2563eb;">Top 5 Wärmste (Zeitraum)</h4>
+        <table>
+          <thead><tr><th>Station</th><th style="text-align:right;">°C</th><th>Zeit</th></tr></thead>
+          <tbody id="topWarmBody"></tbody>
+        </table>
+      </div>
+      
+      <div style="margin-top:16px;">
+        <h4 style="margin:0 0 6px 0; color: #dc2626;">Top 5 Kälteste (Zeitraum)</h4>
+        <table>
+          <thead><tr><th>Station</th><th style="text-align:right;">°C</th><th>Zeit</th></tr></thead>
+          <tbody id="topColdBody"></tbody>
+        </table>
+      </div>
+      
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #e5e7eb;">
+      
+      <div>
+        <h4 style="margin:0 0 6px 0; color: #059669;">Top 5 Wärmste (Alle Zeiten)</h4>
+        <table>
+          <thead><tr><th>Station</th><th style="text-align:right;">°C</th><th>Zeit</th></tr></thead>
+          <tbody id="topWarmAlltimeBody"></tbody>
+        </table>
+      </div>
+      
+      <div style="margin-top:16px;">
+        <h4 style="margin:0 0 6px 0; color: #7c3aed;">Top 5 Kälteste (Alle Zeiten)</h4>
+        <table>
+          <thead><tr><th>Station</th><th style="text-align:right;">°C</th><th>Zeit</th></tr></thead>
+          <tbody id="topColdAlltimeBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const map = L.map('map').setView([51.163, 10.447], 6);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CartoDB', subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+
+    const metricSel = document.getElementById('metricSel');
+    const startDate = document.getElementById('startDate');
+    const endDate = document.getElementById('endDate');
+    const applyBtn = document.getElementById('applyBtn');
+
+    let overlays = [];
+    
+    function clearOverlays() {
+      overlays.forEach(l => map.removeLayer(l));
+      overlays = [];
+    }
+
+    function resetDateTime() {
+      // Setze auf aktuelle Zeit ± 24 Stunden
+      const now = new Date();
+      const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+      const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+      
+      startDate.value = yesterday.toISOString().slice(0, 16);
+      endDate.value = tomorrow.toISOString().slice(0, 16);
+    }
+
+    function loadAnalysis() {
+      clearOverlays();
+      const metric = metricSel.value;
+      const start = startDate.value;
+      const end = endDate.value;
+      
+      // Validiere Datumseingaben
+      if (!start || !end) {
+        alert('Bitte wähle Start- und Enddatum aus.');
+        return;
+      }
+      
+      if (new Date(start) >= new Date(end)) {
+        alert('Startdatum muss vor dem Enddatum liegen.');
+        return;
+      }
+
+      const url = `/api/zeitanalyse?metric=${encodeURIComponent(metric)}&start_date=${encodeURIComponent(start)}&end_date=${encodeURIComponent(end)}`;
+      
+      fetch(url)
+        .then(res => { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+        .then(payload => {
+          const rows = payload.rows || [];
+          const topWarm = payload.top5_warm || [];
+          const topCold = payload.top5_cold || [];
+          const topWarmAlltime = payload.top5_warm_alltime || [];
+          const topColdAlltime = payload.top5_cold_alltime || [];
+
+          // Marker zeichnen für alle Stationen
+          rows.forEach(row => {
+            const lat = Number(row.latitude);
+            const lon = Number(row.longitude);
+            if (!isFinite(lat) || !isFinite(lon)) return;
+
+            const title = row.station_name?.trim() || row.station_id;
+            const timeStr = row.date_hour || 'Unbekannt';
+            const currentTemp = row.temp || 'N/A';
+            const minTemp = row.min_temp || 'N/A';
+            const maxTemp = row.max_temp || 'N/A';
+            
+            const popupHtml = `
+              <div style="min-width:220px">
+                <strong>${title}</strong><br/>
+                <strong>Zeitpunkt:</strong> ${timeStr}<br/>
+                <strong>Aktuelle Temperatur:</strong> ${currentTemp} °C<br/>
+                <strong>Min/Max in diesem Zeitraum:</strong><br/>
+                &nbsp;&nbsp;Min: ${minTemp} °C<br/>
+                &nbsp;&nbsp;Max: ${maxTemp} °C
+              </div>
+            `;
+
+            // Farbe basierend auf aktueller Temperatur
+            const temp = parseFloat(currentTemp);
+            let color = 'gray';
+            if (!isNaN(temp)) {
+              color = temp <= 0 ? 'blue' : temp <= 10 ? 'lightblue' : temp <= 20 ? 'orange' : 'red';
+            }
+
+            const marker = L.circleMarker([lat, lon], {
+              radius: 8, color, fillColor: color, fillOpacity: 0.85
+            }).bindPopup(popupHtml).addTo(map);
+
+            overlays.push(marker);
+          });
+
+          // Top-5 Tabellen für den gewählten Zeitraum
+          const warmBody = document.getElementById('topWarmBody');
+          warmBody.innerHTML = topWarm.map(r => {
+            const id = r.station_id ?? '';
+            const name = r.station_name && r.station_name.trim() !== '' ? r.station_name : '';
+            const label = name ? `${name} (${id})` : id;
+            return `<tr><td>${label}</td><td style='text-align:right;'>${r.temp}</td><td>${r.date_hour ?? ''}</td></tr>`;
+          }).join('');
+
+          const coldBody = document.getElementById('topColdBody');
+          coldBody.innerHTML = topCold.map(r => {
+            const id = r.station_id ?? '';
+            const name = r.station_name && r.station_name.trim() !== '' ? r.station_name : '';
+            const label = name ? `${name} (${id})` : id;
+            return `<tr><td>${label}</td><td style='text-align:right;'>${r.temp}</td><td>${r.date_hour ?? ''}</td></tr>`;
+          }).join('');
+          
+          // Top-5 Tabellen für alle Zeiten (unabhängig vom Zeitraum)
+          const warmAlltimeBody = document.getElementById('topWarmAlltimeBody');
+          warmAlltimeBody.innerHTML = topWarmAlltime.map(r => {
+            const id = r.station_id ?? '';
+            const name = r.station_name && r.station_name.trim() !== '' ? r.station_name : '';
+            const label = name ? `${name} (${id})` : id;
+            return `<tr><td>${label}</td><td style='text-align:right;'>${r.temp}</td><td>${r.date_hour ?? ''}</td></tr>`;
+          }).join('');
+
+          const coldAlltimeBody = document.getElementById('topColdAlltimeBody');
+          coldAlltimeBody.innerHTML = topColdAlltime.map(r => {
+            const id = r.station_id ?? '';
+            const name = r.station_name && r.station_name.trim() !== '' ? r.station_name : '';
+            const label = name ? `${name} (${id})` : id;
+            return `<tr><td>${label}</td><td style='text-align:right;'>${r.temp}</td><td>${r.date_hour ?? ''}</td></tr>`;
+          }).join('');
+        })
+        .catch(err => alert('Fehler Zeitanalyse: ' + err.message));
+    }
+
+    applyBtn.addEventListener('click', loadAnalysis);
+    
+    // Initial: Setze Standard-Zeitraum und lade Daten
+    resetDateTime();
+    loadAnalysis();
+  </script>
+</body>
+</html>

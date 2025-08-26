@@ -11,65 +11,154 @@
       padding: 0;
     }
 
+    :root {
+      --brand: #1e90ff;
+      --brand-dark: #0e62b8;
+      --bg1: #e0f7fa;
+      --bg2: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to top right, #e0f7fa, #ffffff);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 10% 10%, #dbeafe 0%, transparent 60%),
+                  radial-gradient(1000px 600px at 90% 20%, #e0f2fe 0%, transparent 60%),
+                  linear-gradient(to bottom right, var(--bg2), var(--bg1));
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated gradient blobs */
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle at 30% 30%, #93c5fd, transparent 60%),
+                  radial-gradient(circle at 70% 70%, #a7f3d0, transparent 60%);
+      filter: blur(32px);
+      opacity: 0.35;
+      animation: float 18s ease-in-out infinite;
+      z-index: 0;
+    }
+    body::before { top: -120px; left: -120px; }
+    body::after  { bottom: -120px; right: -120px; animation-delay: 5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-12px) scale(1.03); }
     }
 
     .container {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      background: white;
-      padding: 3rem 2rem;
+      background: rgba(255, 255, 255, 0.7);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      backdrop-filter: saturate(180%) blur(14px);
+      padding: 2.5rem 2rem;
       border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      width: min(760px, 92vw);
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     h1 {
-      font-size: 2rem;
-      color: #1e90ff;
-      margin-bottom: 2rem;
+      font-size: clamp(1.6rem, 2.2vw + 1rem, 2.4rem);
+      color: var(--brand);
+      margin-bottom: 0.5rem;
+    }
+
+    p.tagline {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 680px) {
+      .buttons { grid-template-columns: 1fr; }
     }
 
     .btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
       width: 100%;
-      padding: 1rem;
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-      background-color: #1e90ff;
+      padding: 1rem 1.1rem;
+      font-size: 1.05rem;
+      background: linear-gradient(180deg, var(--brand), var(--brand-dark));
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-      box-shadow: 0 4px 10px rgba(30, 144, 255, 0.2);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      box-shadow: 0 8px 18px rgba(30, 144, 255, 0.25);
     }
 
     .btn:hover {
-      background-color: #0066cc;
       transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(30, 144, 255, 0.35);
+      filter: brightness(1.05);
     }
 
-    .emoji {
-      margin-right: 0.5rem;
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 14px rgba(30, 144, 255, 0.25);
+    }
+
+    .btn.secondary {
+      background: linear-gradient(180deg, #10b981, #059669);
+      box-shadow: 0 8px 18px rgba(16, 185, 129, 0.25);
+    }
+
+    .btn.tertiary {
+      background: linear-gradient(180deg, #6366f1, #4f46e5);
+      box-shadow: 0 8px 18px rgba(99, 102, 241, 0.25);
+    }
+
+    .emoji { font-size: 1.2rem; }
+
+    .meta {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🌤️ Deutsche Wetterdaten</h1>
-    <button class="btn" onclick="location.href='/vorhersage'">
-      <span class="emoji">🔮</span>Vorhersage anzeigen
-    </button>
-    <button class="btn" onclick="location.href='/historisch'">
-      <span class="emoji">📊</span>Historische Daten anzeigen
-    </button>
+    <p class="tagline">Schnell zwischen Vorhersage, Historie und Zeitanalyse wechseln – übersichtlich aufbereitet.</p>
+
+    <div class="buttons">
+      <button class="btn" onclick="location.href='/vorhersage'">
+        <span class="emoji">🔮</span>
+        Vorhersage anzeigen
+      </button>
+      <button class="btn secondary" onclick="location.href='/historisch'">
+        <span class="emoji">📊</span>
+        Historische Daten anzeigen
+      </button>
+      <button class="btn tertiary" onclick="location.href='/zeitanalyse'">
+        <span class="emoji">⏱️</span>
+        Zeitanalyse anzeigen
+      </button>
+    </div>
+
+    <div class="meta">Tipp: In der Zeitanalyse sind die wärmsten Stationen rot, die kältesten blau markiert.</div>
   </div>
 </body>
 </html>
